@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+
+/*--------------------------
+GENERAL
+----------------------------*/
+
+body {
+  background: linear-gradient(to right, rgb(63, 219, 255) 0%, rgb(128, 220, 255) 100%) !important;
+}
+
+h1 {
+  text-align: center;
+  color: White !important;
+}
+
+header {
+  margin-top: 50px;
+}
+
+.container{
+padding-bottom: 60px;
+}
+
+/*--------------------------
+MENU TRIVIAS
+----------------------------*/
+
+.menu-trivias img {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.efecto-wrapper {
+  background-color: rgb(240, 36, 115);
+  border-radius: 50%;
+}
+
+.efecto-wrapper:hover img {
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: .5s ease;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+
+/*--------------------------
+IMAGEN COMPLEMENTARIA
+----------------------------*/
+
+.imagen-izquierda img {
+margin-top: 5px;
+width: 70%;
+}

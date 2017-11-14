@@ -1,0 +1,81 @@
+header, section, footer, aside, nav, article, figure, figcaption, hgroup {
+  display: block;
+}
+
+body {
+  background-image: url("../img-musica/BM_background_trivias.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Helvetica;
+  text-align: left;
+}
+
+h1 {
+  font: bold 22px verdana, sans-serif;
+}
+
+#main {
+  width: 80%;
+  max-width: 870px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  box-shadow: 10px 10px 35px -7px rgba(0,0,0,0.7);
+}
+
+#header {
+  margin-top: 0;
+  border: 2px solid black;
+  padding: 5px;
+  height: 300px;
+  background: beige;
+  background-image: url("../img_preguntas/intro.jpg");
+  color: white;
+}
+
+figcaption {
+  margin: 0px;
+  padding: 10px;
+  font: italic 14px verdana, sans-serif;
+  color: darkorange;
+}
+
+<!-- comentarios/ recordar que el nombre de las variables despues tienen que ser sumados -->#menu li {
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+  font: bold 14px verdana, sans-serif;
+}
+
+#columna {
+  float: left;
+  width: 220px;
+  margin: 20px 0px;
+  padding: 20px;
+  background: #CCCCCC;
+}
+
+#pie {
+  clear: both;
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #999999;
+}
+
+article {
+  background: #FFFBCC;
+  border: 1px solid #999999;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+article footer {
+  text-align: right;
+}
+
+time {
+  color: #999999;
+}

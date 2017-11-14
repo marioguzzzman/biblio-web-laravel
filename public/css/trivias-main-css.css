@@ -1,0 +1,62 @@
+/*-------------------------------
+GENERAL
+--------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /*background-color: #34515E;
+  background-color: rgb(1, 45, 65);*/
+  /*background-color: pink !important;*/
+
+  font-size: 14px;
+  /*background: linear-gradient(to top, rgb(0, 109, 222) 0%, #00BCD4 100%);*/
+
+}
+
+.arte{
+  /*background-color: pink !important;*/
+background-color: pink;
+/*padding-left: 30px;
+padding-right: 30px;*/
+}
+
+.container {
+  /*padding-left: 100px !important;
+  padding-right: 100px !important;*/
+    width: 80% !important;
+}
+
+p {
+  text-align: center;
+}
+
+.azul{
+  /*background-color: pink !important;*/
+background-color: blue !important;
+
+}
+
+h1, h4 {
+  text-align: center;
+  margin: 30px !important;
+  font-weight: bold !important;
+}
+
+
+section img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+.bullet {
+  margin-left:13.666667% !important;
+}
+
+.saber {
+padding-left: 10px !important;
+padding-right: 10px;
+}

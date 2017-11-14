@@ -1,0 +1,354 @@
+<!-- http://codeactually.com/interactivequiz.html-->
+
+<!--https://memegenerator.net/create-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>MUSICA</title>
+  <link rel="stylesheet" href="../trivias-css/musica.css">
+
+</head>
+
+<body>
+
+  <script>
+    var audio = new Audio("/Sample.wav ");
+
+    function play() {
+      var audio = document.getElementById('audio');
+
+      if (audio.paused) {
+        audio.play();
+        $('#play').removeClass('glyphicon-play-circle')
+        $('#play').addClass('glyphicon-pause')
+      } else {
+        audio.pause();
+        audio.currentTime = 0
+        $('#play').addClass('glyphicon-play-circle')
+        $('#play').removeClass('glyphicon-pause')
+      }
+    }
+  </script>
+
+
+
+  <div id="main">
+    <!-- open main div -->
+    <div id="header">
+      <!-- open header div -->
+
+      <h1>BIBLIO TRIVIA: MUSICA</h1>
+      <h2><a href="../../HTML/preguntas_index.html">MENÚ</a></h2>
+
+
+    </div>
+    <!-- close header div -->
+
+    <h1>¿Cuánto sabemos sobre Música?</h1>
+
+    <!-- comentarios/ recordar que el nombre de las variables despues tienen que ser sumados -->
+
+    <!-- comentarios -->
+
+
+    <form id="form1" action=" ">
+      <p>1. ¿Cuál es el nombre de una de las obras más famosas en la cual Astor Piazolla le compone a su padre?</p>
+      <img src="../media-musica/1 astor piazzolla.gif" alt="Mountain View" style="width:560px;height:475px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/1.mp3">
+</audio>
+
+      <p></p>
+      <input type="radio" name="uno" value="0" />Libertango<br />
+      <input type="radio" name="uno" value="10" />Adiós Nonino<br />
+      <input type="radio" name="uno" value="0" />Milonga del ángel<br />
+
+      <figcaption> Para saber más: Astor Piazolla nació en Mar del Plata el 11 de marzo de 1921.</figcaption>
+
+
+      <p>2. ¿Dónde murió el famoso cantautor Carlos Gardel?</p>
+      <figcaption> </figcaption>
+
+      <img src="../media-musica/2 carlos gardel.jpg" alt="Mountain View" style="width:506px;height:478px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/2.mp3">
+</audio>
+
+      <p></p>
+      <input type="radio" name="dos" value="0" />Marruecos <br />
+      <input type="radio" name="dos" value="10" />Colombia <br />
+      <input type="radio" name="dos" value="0" />España <br />
+
+      <figcaption> Para saber más: Carlos Gardel fue un cantante, compositor y actor de cine. Es el más conocido representante del género en la historia del tango. La hipótesis uruguayista sostiene que nació en Tacuarembó (Uruguay), un 11 de diciembre entre 1883 y 1887.
+        La hipótesis francesista sostiene que nació en Toulouse (Francia) el 11 de diciembre de 1890.</figcaption>
+      <p></p>
+
+      <p>3. ¿La canción <i>Costumbres  Argentinas</i>, a qué banda o intérprete pertenece?</p>
+      <img src="../media-musica/3 los abuelos de la nada.jpg" alt="Mountain View" style="width:504px;height:328px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/3.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="tres" value="0" />Los Piojos<br />
+      <input type="radio" name="tres" value="10" />Los abuelos de la nada<br />
+      <input type="radio" name="tres" value="0" />La Renga<br />
+
+      <figcaption> Para saber más: Fue un grupo de rock argentino fundado por Miguel Abuelo en 1967, famoso por ser uno de los pioneros del género en su país. Durante su trayectoria, la banda alternó entre funk rock, new wave, rock psicodélico y pop rock; siendo este
+        último el estilo con el que lograrían su faceta más prolífica y representativa. Entre su repertorio se ubican reconocidos clásicos de la música argentina tales como , «Himno de mi Corazón», «Lunes por la madrugada», «Mil horas», «Sin gamulán»,
+        «No se desesperen», «En la Fuente de la Unión», «Zig Zag» y «No puedo decir que no», entre otros.</figcaption>
+
+      <p>4. ¿Qué canción interpretada por León Gieco utiliza frases inspiradas en históricos acontecimientos sociales como la dictadura militar y el probable conflicto bélico entre Chile y Argentina?</p>
+
+      <img src="../media-musica/4 leon gieco.jpg" alt="Mountain View" style="width:520px;height:445px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/4.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="cuatro" value="10" />Solo le pido a dios<br />
+      <input type="radio" name="cuatro" value="0" />Sobreviviendo<br />
+      <input type="radio" name="cuatro" value="0" />El ángel de la bicicleta<br />
+
+      <figcaption> Para saber más: Raúl Alberto Antonio Gieco, conocido popularmente como León Gieco, nació en Cañada Rosquín, provincia de Santa Fe, Argentina, 20 de noviembre de 1951. Se caracteriza por mezclar el género folclórico con el rock argentino y por las
+        connotaciones sociales y políticas de sus canciones, a favor de los derechos humanos, los campesinos y pueblos originarios, el apoyo a los discapacitados y la solidaridad con los marginados.</figcaption>
+
+
+      <p>5. ¿A qué autor pertenecen las siguientes obras “Si se calla el cantor” – “La villerita” – “Piel Morena”? </p>
+
+      <img src="../media-musica/5 horacio guarani.jpg" alt="Mountain View" style="width:670px;height:333px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/5.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="cinco" value="10" />Horacio Guarany<br />
+      <input type="radio" name="cinco" value="0" />Argentino Luna <br />
+      <input type="radio" name="cinco" value="0" />Jorge Cafrune<br />
+
+      <figcaption> Para saber más: Eraclio Catalín Rodríguez Cereijo 1 nacio en Las Garzas, Provincia de Santa Fe, 15 de mayo de 1925, cuyo nombre artístico fue H---- G----, fue un cantor, compositor y escritor argentino, ganador del Premio Konex de Platino en 1985
+        como el más importante cantante masculino de folklore de la historia en Argentina.</figcaption>
+
+      <p>6. ¿De qué provincia es originaria el grupo folklórico “Los Manseros”?</p>
+
+      <img src="../media-musica/6 los manseros.jpg" alt="Mountain View" style="width:504px;height:328px;">
+      <p></p>
+
+
+      <audio controls>
+  <source src="../media-musica/6.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="seis" value="0" />Córdoba<br />
+      <input type="radio" name="seis" value="10" />Santiago del Estero<br />
+      <input type="radio" name="seis" value="0" />Salta<br />
+
+      <figcaption> Para saber más: Los Manseros Santiagueños es un conjunto folclórico argentino que surgió como dúo vocal en el año 1959 integrado por tres guitarras y un bombo. Originarios de La Banda, provincia de Santiago del Estero</figcaption>
+
+      <p>7. ¿La canción <i>La mano de dios</i>, del famoso intérprete de cuarteto Rodrigo, fue dedicado a que futbolista?</p>
+
+      <img src="../media-musica/7 rodrigo.jpg" alt="Mountain View" style="width:428px;height:428px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/7.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="siete" value="0" />La “Brujita” Veron<br />
+      <input type="radio" name="siete" value="0" />Lionel Messi<br />
+      <input type="radio" name="siete" value="10" />Diego Armando Maradona<br />
+
+      <figcaption> Para saber más: Rodrigo Alejandro Bueno nació en Córdoba, 24 de mayo de 1973, conocido por su nombre artístico Rodrigo o por su apodo El Potro, fue un cantante de cuarteto y boxeador argentino. El estilo de Rodrigo estuvo marcado por su carisma
+        y su energía en el escenario. Durante su carrera, Rodrigo amplió la música cuartetera a la escena nacional argentina, siendo una de las principales figuras del género.</figcaption>
+
+      <p>8. ¿Qué cantante femenina perteneciente a la cumbia, interpreta la canción <i>Corazón valiente</i>?</p>
+
+      <img src="../media-musica/8 gilda.jpg" alt="Mountain View" style="width:520px;height:520px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/8.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="ocho" value="10" /> Gilda<br />
+      <input type="radio" name="ocho" value="0" /> Karina<br />
+      <input type="radio" name="ocho" value="0" /> Gladis “La Bomba” Tucumana<br />
+
+      <figcaption> Para saber más: Míriam Alejandra Bianchi  nacida en Buenos Aires, 11 de octubre de 1961, fue una cantante y compositora argentina de cumbia. Su carrera musical comenzó cuando respondió a un aviso en un periódico, donde pedían vocalistas para un
+        grupo musical. Su voz y su carisma le ganaron un lugar en una banda de género tropical.</figcaption>
+
+      <p>9. ¿La canción “ciudad mágica” de la banda Tan Boinica, a qué provincia hace referencia?</p>
+
+      <img src="../media-musica/9 tan bionica.jpg" alt="Mountain View" style="width:504px;height:328px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/9.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="nueve" value="00" />Tucumán<br />
+      <input type="radio" name="nueve" value="10" />Buenos Aires<br />
+      <input type="radio" name="nueve" value="0" />Jujuy<br />
+
+      <figcaption> Para saber más: Tan Biónica es una banda de pop rock surgida en Buenos Aires en el año 2002, formada por Santiago «Chano» Moreno Charpentier (voz), Sebastián «Seby» Seoane (guitarra), Gonzalo «Bambi» Moreno Charpentier (bajo) y Diego «Diega» Lichtenstein (batería).
+        Algunos se sus temas conocidos son “ELLA” “ARRUINARSE”” “LOCA” </figcaption>
+
+      <p>10. ¿De quién es el punteo de guitarra en la canción <i>Don</i> de Miranda?</p>
+
+      <img src="../media-musica/10 miranda.jpg" alt="Mountain View" style="width:504px;height:328px;">
+      <p></p>
+
+      <audio controls>
+  <source src="../media-musica/010.mp3">
+</audio>
+
+      <p></p>
+
+      <input type="radio" name="diez" value="0" />De topo<br />
+      <input type="radio" name="diez" value="10" />De lolo<br />
+      <input type="radio" name="diez" value="0" />De manolo<br />
+
+      <figcaption> Para saber más: Miranda es una banda argentina de pop rock y electropop melodramático; formada en 2001. El nombre de la banda es un homenaje al actor argentino Osvaldo Miranda. Debutó en los escenarios en julio de 2001 y consiguió el 3º puesto en
+        el rubro Revelación 2002 de la encuesta anual de la revista Rolling Stone </figcaption>
+
+      <p></p>
+
+      <input type="submit" value="Hacé click para revisar tus respuestas">
+
+    </form>
+
+    <!-- RESULTADOS -->
+    <p>Tu resultado es: <span id="grade">__</span></p>
+    <p id="grade2"></p>
+
+  </div>
+  <!-- close main div -->
+
+
+  <script>
+    document.getElementById("form1").onsubmit = function() {
+      uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+      dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+      tres = parseInt(document.querySelector('input[name = "tres"]:checked').value);
+      cuatro = parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
+      cinco = parseInt(document.querySelector('input[name = "cinco"]:checked').value);
+      seis = parseInt(document.querySelector('input[name = "seis"]:checked').value);
+      siete = parseInt(document.querySelector('input[name = "siete"]:checked').value);
+      ocho = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
+      nueve = parseInt(document.querySelector('input[name = "nueve"]:checked').value);
+      diez = parseInt(document.querySelector('input[name = "diez"]:checked').value);
+
+
+
+      result = uno + dos + tres + cuatro + cinco + seis + siete + ocho + nueve + diez; //aca vemos el resultado
+
+      document.getElementById("grade").innerHTML = result;
+
+
+      grading = [
+
+        // {score:0,feedback:"I don't think you studied", image: "0.jpg"},
+        {
+          score: 0,
+          image: "../img-respuestas/0.jpg"
+        },
+        {
+          score: 10,
+          image: "../img-respuestas/0.jpg"
+        },
+        {
+          score: 20,
+          image: "../img-respuestas/0.jpg"
+        },
+
+        {
+          score: 30,
+          image: "../img-respuestas/30.jpg"
+        },
+        {
+          score: 40,
+          image: "../img-respuestas/30.jpg"
+        },
+
+        {
+          score: 50,
+          image: "../img-respuestas/50.jpg"
+        },
+        {
+          score: 60,
+          image: "../img-respuestas/50.jpg"
+        },
+
+        {
+          score: 70,
+          image: "../img-respuestas/70.jpg"
+        },
+        {
+          score: 80,
+          image: "../img-respuestas/70.jpg"
+        },
+        {
+          score: 90,
+          image: "../img-respuestas/70.jpg"
+        },
+
+
+        {
+          score: 100,
+          image: "../img-respuestas/100.jpg"
+        }
+      ];
+
+      for (i = 0; i < grading.length; i++) {
+        if (result == grading[i].score) {
+          result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
+        }
+      }
+
+      document.getElementById("grade2").innerHTML = result2;
+
+
+      return false; // required to not refresh the page; just leave this here
+    } //this ends the submit function
+  </script>
+
+  <p></p>
+
+  <small>
+        <address>
+            <a href=”http://www.bcn.gov.ar”>Biblioteca del Congreso de la Nación</a>
+            &copy; 2017
+        </address>
+
+    </small>
+
+</body>
+
+</html>

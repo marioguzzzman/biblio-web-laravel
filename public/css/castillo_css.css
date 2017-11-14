@@ -1,0 +1,41 @@
+h1:hover {
+  font-size: 50px;
+  font-family: 'Metamorphous', sans-serif;
+  text-align: center;
+}
+h1 {
+  font-size: 50px;
+  font-family: 'Creepster', cursive;
+  text-align: center;
+}
+body {
+  background-image: url("../img/castillo.jpg");
+  background-attachment: fixed;
+  text-align: left;
+  color: white;
+  font-family: 'Metamorphous', cursive;
+  text-align: center;
+  font-size: 16px;
+}
+
+textarea, input {
+  font-size: 14px;
+  color: rgb(255,255,255);
+  background-color: rgba(0,0,0,0.2);
+text-align: justify;
+border-style: none;
+
+}
+
+input:focus {
+width: 200px;
+
+}
+
+textarea:hover, input:hover {
+  font-size: 14px;
+  color: rgb(255,255,255);
+  background-color: rgba(5,0,0,0.6);
+text-align: justify;
+border-style: none;
+}

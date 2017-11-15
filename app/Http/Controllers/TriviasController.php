@@ -15,8 +15,22 @@ class TriviasController extends Controller
      */
     public function index()
     {
-        return view('preguntas-menu');
+        return view('trivias.preguntas-menu');
 
+    }
+
+    public function triviaDirect($nombre)
+    {
+        return view('/trivias/$nombre');
+
+      // foreach ($this->peliculas as $id => $titulo) {
+      //     // var_dump($titulo);
+      //     if ($titulo==$nombre) {
+      //         return "<h1>".$nombre."</h1>";
+      //     } else {
+      //         echo "no se encuentra esa peli".'<br />';
+      //     }
+      // }
     }
 
     /**
@@ -48,7 +62,8 @@ class TriviasController extends Controller
      */
     public function show($id)
     {
-        //
+      // return view('preguntas-menu');
+
     }
 
     /**

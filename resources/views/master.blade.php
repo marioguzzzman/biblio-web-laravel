@@ -11,10 +11,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>@yield('title')</title>
+  <title>@yield('title', 'Biblio-Web')</title>
 
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/main2.css">
+  <link rel="stylesheet" href=@yield('nav-css','css/navbar.css')>
+  <link rel="stylesheet" href=@yield('page-css','css/main2.css')>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">

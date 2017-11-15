@@ -18,12 +18,23 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/trivias', 'TriviasController@index');
-
 Route::get('/login', 'LoginController@index');
 
 Route::get('/registro', 'RegistroController@index');
 
 Route::get('/usuario-dashboard', 'UsuarioDashController@index');
+
+//-----Trivias
+Route::get('/trivias', 'TriviasController@index');
+Route::get('/trivias/{$nombre}', 'TriviasController@triviaDirect');
+
+Route::get('/trivias/arte', function () {
+    return view('/trivias.arte');
+});
+
+Route::get('/trivias/arte-m', function () {
+    return view('/trivias.trivia-master');
+});
+
 
 Route::get('/castillo', 'CastilloController@index');

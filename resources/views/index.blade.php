@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('title', 'Biblio-web')
+{{-- @section('title', 'Biblio-web') --}}
+{{-- @section('nav-css','css/navbar.css')
+@section('page-css','css/main2.css') --}}
 
 @section('content')
 

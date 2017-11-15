@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('title', 'Biblio-web')
-@parent  <link rel="stylesheet" href="css/trivias-menu.css">
+{{-- @section('nav-css','css/navbar.css') --}}
+@section('page-css','css/trivias-menu.css')
 
 @section('content')
 

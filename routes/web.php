@@ -28,13 +28,18 @@ Route::get('/usuario-dashboard', 'UsuarioDashController@index');
 Route::get('/trivias', 'TriviasController@index');
 Route::get('/trivias/{$nombre}', 'TriviasController@triviaDirect');
 
-Route::get('/trivias/arte', function () {
+Route::get('/trivias/arte', function () { //aca me gustaria poder poner una variable que le mande informacion al ontrolador o a las trivias master
     return view('/trivias.arte');
 });
 
+
+Route::get('/trivias/$trivia_category_id', 'TriviasController@showUnaTrivia');
+Route::get('/trivias/{trivia_category_id}', 'TriviasController@show');
+Route::get('/trivias/editar-trivias', 'TriviasController@edit');
+/*
 Route::get('/trivias/arte-m', function () {
     return view('/trivias.trivia-master');
 });
-
+*/
 
 Route::get('/castillo', 'CastilloController@index');

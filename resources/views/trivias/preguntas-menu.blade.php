@@ -33,7 +33,7 @@
           <div class="row">
             <!-- PRIMERA FILA -->
             <div class="col-md-3">
-              <a id="single_image1" href="../trivias/trivias-index/literatura.html">
+              <a id="single_image1" href="/trivias/arte-m?nombreTrivia=literatura">
                 <div class="efecto-wrapper">
                   <img class="img-responsive" src="img/trivias/libro.png" alt="literatura" />
                 </div>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-md-3">
-              <a id="imagen1" href="../trivias/trivias-index/arte.html">
+              <a id="imagen1" href="/trivias/arte-m">
                 <div class="efecto-wrapper">
                   <img class="img-responsive" src="img/trivias/libro.png" alt="literatura" />
                 </div>

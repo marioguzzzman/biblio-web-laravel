@@ -156,7 +156,93 @@
         </div>
         </div> -->
 
-  <div class="container">
+        <!-- About Section -->
+<section id="about">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Historia del Bibliomóvil</h2>
+                  <p class="text-muted">Desde su creación en el año 2002, el Bibliomóvil de la Biblioteca del Congreso de la Nación ha recorrido más de 250.000 km llegando a más de 350 ciudades y pueblos, generando así una amplia red federal de
+intercambio y circulación de contenidos. Hoy, frente a la globalización en la que las fronteras se desdibujan el Bibliomóvil sigue creciendo con la implementación de procesos culturales dinámicos y multiplicadores.</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <ul class="timeline">
+
+                      <li class="timeline-inverted">
+                          <div class="timeline-image">
+                              <img class="img-circle img-responsive" src="img/historia/1.jpg" alt="">
+                          </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4>2001</h4>
+                                  <h4 class="subheading">Compromiso con la comunidad</h4>
+                              </div>
+                              <div class="timeline-body">
+                                  <p class="text-muted">En el año 2001 la Fundación Bill & Melinda Gates distinguió con el Premio "Access to Learning" a la Biblioteca del Congreso. Este premio significó un reconocimiento al compromiso de la institución con la comunidad expresado entre otras cosas, en la posibilidad que se brinda al usuario de acceder a consultas en forma libre y gratuita, las 24 horas del día.</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="timeline-image">
+                              <img class="img-circle img-responsive" src="img/historia/2.jpg" alt="">
+                          </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4>2002</h4>
+                                  <h4 class="subheading">La cultura al servicio del país</h4>
+                              </div>
+                              <div class="timeline-body">
+                                  <p class="text-muted">En un contexto histórico difícil para el país, el Bibliomóvil inició su tarea acercando a los lugares más alejados y a los sectores más desprotegidos la oportunidad de acceder a la lectura, la tecnología y la información. Para ello, se acondicionaron dos contenedores, cuyo traslado requería una logística compleja, uno como sala de lectura con tres mil títulos y otro como sala de computación con tres computadoras con acceso a internet.</p>
+                                  {{-- <p>Se crea el Bibliomóvil (Biblioteca Móvil Multimodal) con el fin educativo de incentivar la lectura y el intercambio cultural entre las distintas provincias del país y el Congreso de la Nación.</p> --}}
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="timeline-image">
+                              <img class="img-circle img-responsive" src="img/historia/3.jpg" alt="">
+                          </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4>2005</h4>
+                                  <h4 class="subheading">Leer y escribir para integrarnos</h4>
+                              </div>
+                              <div class="timeline-body">
+                                  <p class="text-muted">Basados en la experiencia y con una clara visión de integración social a través del acceso igualitario a la cultura, la información y la difusión de la labor parlamentaria, se inicia una etapa de orientación pedagógica centrando su acción en el ámbito educativo. Se crea entonces el Programa de Promoción de la Lectura y la Escritura “Cultura en Movimiento” con el propósito de reconocer y promover la lectura y la escritura como una necesidad básica para el crecimiento y desarrollo humano.</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="timeline-inverted">
+                          <div class="timeline-image">
+                              <img class="img-circle img-responsive" src="img/historia/4.jpg" alt="">
+                          </div>
+                          <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                  <h4>2007-2018</h4>
+                                  <h4 class="subheading"></h4>
+                              </div>
+                              <div class="timeline-body">
+                                  <p class="text-muted">La Biblioteca le pone ruedas a su labor itinerante y adquiere un micro que plantea una dinámica y un ámbito de acción diferentes. La movilidad de la unidad permite ampliar los recorridos y llegar a los lugares más alejados de las fuentes de información. Se realizan encuentros amistosos con los libros, iniciación a informática e internet, actividades plásticas, ajedrez, narración de cuentos, cortometrajes, cine debate, imágenes y arte. Se dictan cursos y talleres específicos para docentes referidos a los proyectos vinculados con la escuela. <br> En la actualidad el Bibliomóvil ha recorrido más de 250.000 Kilmétros, y ha compartido sus materiales bibliográficos con más de 550,000 personas de todo el país.</p>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="img/historia/5.jpg" alt="">
+                            {{-- <h4>Ahora
+                                <br>eres parte
+                                <br>de esta historia</h4> --}}
+                        </div>
+
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  {{-- <div class="container">
     <section id="historia">
       <!--HISTORIA!-->
       <div class="col-md-6 col-md-offset-3 historia">
@@ -216,7 +302,7 @@
       </div>
       <!--/HISTORIA!-->
     </section>
-  </div>
+  </div> --}}
 
   <!-- <div class="row linea">
         <div class="col-xs-8 col-xs-offset-2">

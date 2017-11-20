@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-  public function category() {
-    return $this->belongsTo('\App\Category', 'category_id', 'id');
+  protected $table = 'trivia_category'; // $table es palabra reservada, siempre protected
+
+  public function trivias() {
+    return $this->hasMany('\App\Trivia', 'trivia_category_id');
 }
 }

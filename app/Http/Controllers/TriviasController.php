@@ -17,35 +17,16 @@ class TriviasController extends Controller
     public function index()
     {
         return view('trivias.preguntas-menu');
-
     }
 
-    public function showUnaTrivia($trivia_category_id){
-      // Este foreach nos muestra el producto, de ahí podemos sacar los datos que querramos. En este caso $producto es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
+    public function showUnaTrivia($trivia_category_id)
+    {
+        // Este foreach nos muestra el unatrivia, de ahí podemos sacar los datos que querramos. En este caso $unaTrivia es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
 
-
-      $unaTrivia = Trivia::all()
+        $unaTrivia = Trivia::all()
           ->where('trivia_category_id', $trivia_category_id);
 
-          foreach ($this->unaTrivia as $unaTrivia) {
-            dd($unaTrivia);
-          }
-
-        return view('trivias.show', ['unaTrivia' => $unaTrivia]);
-    }
-
-    public function triviaDirect($nombre)
-    {
-        return view('/trivias/$nombre');
-
-      // foreach ($this->peliculas as $id => $titulo) {
-      //     // var_dump($titulo);
-      //     if ($titulo==$nombre) {
-      //         return "<h1>".$nombre."</h1>";
-      //     } else {
-      //         echo "no se encuentra esa peli".'<br />';
-      //     }
-      // }
+        return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
     }
 
     /**
@@ -70,18 +51,32 @@ class TriviasController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Este foreach nos muestra el unatrivia, de ahí podemos sacar los datos que querramos. En este caso $unaTrivia es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($trivia_category_id)
     {
+      // $request=$request->input();
+        $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
+        return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
 
-      $unaTrivia = Trivia::all()
-          ->where('trivia_category_id', $trivia_category_id);
-        return view('trivias.show', ['unaTrivia' => $unaTrivia]);
-
+    //ejemplo para usar en vista
+            // @foreach ($unaTrivia as $unaTrivia)
+            //   <h1>{{$unaTrivia->trivia_category_id}}</h1>
+            //   <h2>{{$unaTrivia->pregunta}}</h2>
+            //   <ul>
+            //     <div class="container">
+            //       <div class="row">
+            //           <h3>{{$unaTrivia->respuesta1}}</h3>
+            //           <h3>{{$unaTrivia->respuesta2}}</h3>
+            //           <h3>{{$unaTrivia->respuestaCorrecta}}</h3>
+            //       </div>
+            //     </div>
+            //   </ul>
+            //   <p>{{$unaTrivia->ayuda}}</p>
+            // @endforeach
     }
 
     /**
@@ -92,8 +87,8 @@ class TriviasController extends Controller
      */
     public function edit()
     {
-      // Este foreach nos muestra el producto, de ahí podemos sacar los datos que querramos. En este caso $producto es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
-      $trivia = Trivia::all();
+        // Este foreach nos muestra el producto, de ahí podemos sacar los datos que querramos. En este caso $producto es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
+        $trivia = Trivia::all();
         return view('trivias.show', ['trivia' => $trivia]);
     }
 
@@ -121,7 +116,8 @@ class TriviasController extends Controller
     }
 
 
-    public function prueba(Request $request){
-      dd($request->color);
+    public function prueba(Request $request)
+    {
+        dd($request->color);
     }
 }

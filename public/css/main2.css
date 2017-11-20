@@ -216,7 +216,8 @@ CONTENEDORES
 
 body {
   /*background-color: rgb(25, 164, 240) !important;*/
-  background: url(../img/background/Cloud-Web-Background5.jpg);
+  background-color: rgb(61, 154, 208) !important;
+  /*background: url(../img/background/Cloud-Web-Background5.jpg);*/
   background-position: bottom;
   background-position-y: bottom;
 }
@@ -326,26 +327,191 @@ article {
   padding-bottom: 20px;
 }
 
+/*--------------------------------
+HISTORIA BUEVA
+---------------------------------*/
 
-/*--------------------------
-HISTORIA
-----------------------------*/
-
-.timeline p {
-  font-weight: normal;
-  font-size: 14px;
-  /*color: rgb(20, 20, 20);*/
-  line-height: 11px;
-  text-align: justify;
+.timeline {
+  list-style: none;
+  padding: 0;
+  position: relative
 }
 
-.timeline img {
-  width: 20%;
-  border-radius: 5%;
-  text-align: center;
+.timeline:before {
+  top: 0;
+  bottom: 0;
   position: absolute;
-  top: 16px;
-  left: 40%;
+  content: "";
+  width: 2px;
+  background-color: #f1f1f1;
+  left: 40px;
+  margin-left: -1.5px
+}
+
+.timeline>li {
+  margin-bottom: 50px;
+  position: relative;
+  min-height: 50px
+}
+
+.timeline>li:after, .timeline>li:before {
+  content: " ";
+  display: table
+}
+
+.timeline>li:after {
+  clear: both
+}
+
+.timeline>li .timeline-panel {
+  width: 100%;
+  float: right;
+  padding: 0 20px 0 100px;
+  /*border: 1px solid rgba(#fcf7f7, 0) !important;*/
+  position: relative;
+  text-align: left
+}
+
+.timeline>li .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto
+}
+
+.timeline>li .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto
+}
+
+.timeline>li .timeline-image {
+  left: 0;
+  margin-left: 0;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: 100;
+  background-color: rgb(16, 185, 177);
+  color: #fff;
+  border-radius: 100%;
+  border: 7px solid #f1f1f1;
+  text-align: center
+}
+
+.timeline>li .timeline-image h4 {
+  font-size: 10px;
+  margin-top: 30px !important;
+  line-height: 14px;
+}
+
+.timeline>li.timeline-inverted>.timeline-panel {
+  float: right;
+  text-align: left;
+  padding: 0 20px 0 100px
+}
+
+.timeline>li.timeline-inverted>.timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto
+}
+
+.timeline>li.timeline-inverted>.timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto
+}
+
+.timeline>li:last-child {
+  margin-bottom: 0
+}
+
+.timeline .timeline-heading h4 {
+  margin-top: 0;
+  color: rgb(165, 218, 246);
+}
+
+.timeline .timeline-heading h4.subheading {
+  text-transform: none
+}
+
+.timeline .timeline-body>p, .timeline .timeline-body>ul {
+  margin-bottom: 0
+}
+
+@media (min-width:768px) {
+  .timeline:before {
+    left: 50%
+  }
+  .timeline>li {
+    margin-bottom: 100px;
+    min-height: 100px
+  }
+  .timeline>li .timeline-panel {
+    width: 41%;
+    float: left;
+    padding: 0 20px 20px 30px;
+    text-align: right
+  }
+  .timeline>li .timeline-image {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    margin-left: -50px
+  }
+  .timeline>li .timeline-image h4 {
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 18px
+  }
+  .timeline>li.timeline-inverted>.timeline-panel {
+    float: right;
+    text-align: left;
+    padding: 0 30px 20px 20px
+  }
+}
+
+@media (min-width:992px) {
+  .timeline>li .timeline-panel, .timeline>li.timeline-inverted>.timeline-panel {
+    padding: 0 20px 20px
+  }
+  .timeline>li {
+    min-height: 150px
+  }
+  .timeline>li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px
+  }
+  .timeline>li .timeline-image h4 {
+    font-size: 18px;
+    margin-top: 30px;
+    line-height: 26px
+  }
+}
+
+@media (min-width:1200px) {
+  .timeline>li {
+    min-height: 170px
+  }
+  .timeline>li .timeline-panel {
+    padding: 0 20px 20px 100px
+  }
+  .timeline>li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px
+  }
+  .timeline>li .timeline-image h4 {
+    margin-top: 40px
+  }
+  .timeline>li.timeline-inverted>.timeline-panel {
+    padding: 0 100px 20px 20px
+  }
 }
 
 
@@ -375,6 +541,14 @@ PREGUNTAS FRECUENTES
 TIMELINE
  -----------------------------------*/
 
+
+.text-muted {
+  color: #777;
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+  text-align: justify !important;
+  }
+
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
@@ -390,13 +564,13 @@ TIMELINE
   background-color: #eeeeee;
   left: 50%;
   margin-left: -1.5px;
-  background: rgb(80, 80, 80);
-  background: -moz-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+  background: rgb(143, 140, 140);
+  background: -moz-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(236, 230, 230)8%, rgb(236, 230, 230)92%, rgba(80, 80, 80, 0) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 1)), color-stop(100%, rgba(125, 185, 232, 1)));
-  background: -webkit-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
-  background: -o-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
-  background: -ms-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
-  background: linear-gradient(to bottom, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+  background: -webkit-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(236, 230, 230)8%, rgb(236, 230, 230)92%, rgba(80, 80, 80, 0) 100%);
+  background: -o-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(236, 230, 230)8%, rgb(236, 230, 230)92%, rgba(80, 80, 80, 0) 100%);
+  background: -ms-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(236, 230, 230)8%, rgb(236, 230, 230)92%, rgba(80, 80, 80, 0) 100%);
+  background: linear-gradient(to bottom, rgba(80, 80, 80, 0) 0%, rgb(236, 230, 230)8%, rgb(236, 230, 230)92%, rgba(80, 80, 80, 0) 100%);
 }
 
 .timeline>li {
@@ -426,7 +600,7 @@ TIMELINE
   /*tamaño de los dialogos*/
   width: 42%;
   float: left;
-  border: 1px solid #d4d4d4;
+  /*border: 1px solid #d4d4d4;*/
   border-radius: 2px;
   padding: 20px;
   position: relative;

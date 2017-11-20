@@ -49,10 +49,10 @@
         <li class="dropdown" id="acercade">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acerca de <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="index.php">¿Qué es el Bibliomóvil?</a></li>
+            <li><a href="#home.php">¿Qué es el Bibliomóvil?</a></li>
             <li><a href="#servicios">Serivcios</a></li>
             <li><a href="#historia">Historia</a></li>
-            <li><a href="#equipo">Equipo Bibliomóvil</a></li>
+            {{-- <li><a href="#equipo">Equipo Bibliomóvil</a></li> --}}
             <li><a href="#faq">Preguntas Frecuentes</a></li>
 
           </ul>

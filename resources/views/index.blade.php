@@ -157,13 +157,12 @@
         </div> -->
 
         <!-- About Section -->
-<section id="about">
+<section id="historia">
       <div class="container">
           <div class="row">
               <div class="col-lg-12 text-center">
                   <h2 class="section-heading">Historia del Bibliomóvil</h2>
-                  <p class="text-muted">Desde su creación en el año 2002, el Bibliomóvil de la Biblioteca del Congreso de la Nación ha recorrido más de 250.000 km llegando a más de 350 ciudades y pueblos, generando así una amplia red federal de
-intercambio y circulación de contenidos. Hoy, frente a la globalización en la que las fronteras se desdibujan el Bibliomóvil sigue creciendo con la implementación de procesos culturales dinámicos y multiplicadores.</p>
+                  <p class="text-muted">Desde su creación en el año 2002, el Bibliomóvil de la Biblioteca del Congreso de la Nación ha visitado más de 350 pueblos y ciudades, generando así una amplia red federal de intercambio y circulación de contenidos. Hoy, frente a la globalización en la que las fronteras se desdibujan el Bibliomóvil sigue creciendo con la implementación de procesos culturales dinámicos y multiplicadores.</p>
               </div>
           </div>
           <div class="row">
@@ -199,7 +198,7 @@ intercambio y circulación de contenidos. Hoy, frente a la globalización en la 
                               </div>
                           </div>
                       </li>
-                      <li>
+                      <li class="timeline-inverted">
                           <div class="timeline-image">
                               <img class="img-circle img-responsive" src="img/historia/3.jpg" alt="">
                           </div>
@@ -213,26 +212,36 @@ intercambio y circulación de contenidos. Hoy, frente a la globalización en la 
                               </div>
                           </div>
                       </li>
-                      <li class="timeline-inverted">
+                      <li class="">
                           <div class="timeline-image">
                               <img class="img-circle img-responsive" src="img/historia/4.jpg" alt="">
                           </div>
                           <div class="timeline-panel">
                               <div class="timeline-heading">
-                                  <h4>2007-2018</h4>
+                                  <h4>2007-2017</h4>
                                   <h4 class="subheading"></h4>
                               </div>
                               <div class="timeline-body">
-                                  <p class="text-muted">La Biblioteca le pone ruedas a su labor itinerante y adquiere un micro que plantea una dinámica y un ámbito de acción diferentes. La movilidad de la unidad permite ampliar los recorridos y llegar a los lugares más alejados de las fuentes de información. Se realizan encuentros amistosos con los libros, iniciación a informática e internet, actividades plásticas, ajedrez, narración de cuentos, cortometrajes, cine debate, imágenes y arte. Se dictan cursos y talleres específicos para docentes referidos a los proyectos vinculados con la escuela. <br> En la actualidad el Bibliomóvil ha recorrido más de 250.000 Kilmétros, y ha compartido sus materiales bibliográficos con más de 550,000 personas de todo el país.</p>
+                                  <p class="text-muted">La Biblioteca le pone ruedas a su labor itinerante y adquiere un micro que plantea una dinámica y un ámbito de acción diferentes. La movilidad de la unidad permite ampliar los recorridos y llegar a los lugares más alejados de las fuentes de información. Se realizan encuentros amistosos con los libros, escritura de historias interactivas, actividades plásticas, narración de cuentos, cortometrajes y actividades artísticas. Además se dictan cursos y talleres específicos para docentes referidos a los proyectos vinculados con la escuela.</p>
                               </div>
                           </div>
                       </li>
                       <li class="timeline-inverted">
+                      {{-- <li class="timeline-inverted"> --}}
                         <div class="timeline-image">
                             <img class="img-circle img-responsive" src="img/historia/5.jpg" alt="">
                             {{-- <h4>Ahora
                                 <br>eres parte
                                 <br>de esta historia</h4> --}}
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2018</h4>
+                                <h4 class="subheading"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">En la actualidad el Bibliomóvil ha recorrido más de 250.000 Kilmétros, y ha compartido sus libros, historias y actividades con más de 500,000 personas de todo el país.</p>
+                            </div>
                         </div>
 
                       </li>

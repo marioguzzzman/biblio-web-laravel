@@ -10,6 +10,7 @@
 
 @php
 // $nombreTrivia = 'Arte';
+// $nombreCarpetaImagen = $_POST['nombreCarpetaImagen'];
 $nombreCarpetaImagen = $_GET['nombreCarpetaImagen'];
 $bulletName = ['cero', 'uno','dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',];
 $calificación = ['0','0','10',];
@@ -34,7 +35,8 @@ $calificación = ['0','0','10',];
 
   <div class="container">
 
-    <form action="" name="triviaForm" class="register-form" id="form1" onsubmit="return results();" method="">
+    <form action="" class="register-form" id="form1">
+    {{-- <form action="" name="triviaForm" class="register-form" id="form1" onsubmit="return results();" method=""> --}}
 
       <section class="trivias">
         <div class="row">
@@ -44,10 +46,21 @@ $calificación = ['0','0','10',];
             <!-- PREGUNTA  -->
             <article class="pregunta">
                 <h4>{{$trivia->pregunta}}</h4>
-                <!-- <h4>PREGUNTA 1</p> -->
+                <!-- <h4>PREGUNTA 1/ IMAGEN</p> -->
                 <img src="/img/trivias/img-{{$nombreCarpetaImagen}}/{{$i}}.jpg" alt="img-{{$nombreCarpetaImagen}}/{{$i}}.jpg">
                 <br>
-                <!-- EMPIEZAN BULLETS -->
+
+                <!-- MUSICA  -->
+                @if ($nombreCarpetaImagen == 'musica')
+                  <div class="col-md-10 col-md-offset-2 bullet">
+                    <audio controls>
+                      <source src="/img/trivias/img-musica/{{$i}}.mp3">
+                    </audio>
+                  </div>
+                  <br><br>
+                @endif
+
+                          <!-- EMPIEZAN BULLETS -->
                 <div class="col-md-10 col-md-offset-2 bullet">
                   <!-- <input type="radio" class="form-check-input" name="uno?>" value="0"/> -->
                   <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="0" />
@@ -101,7 +114,8 @@ $calificación = ['0','0','10',];
     <!-- ROW -->
     <div class="col-md4 col-md-offset-3">
       <!-- COL -->
-      <input class="btn btn-lg btn-warning" type="submit" id="submit" data-target="" value="Hacé click para revisar tus respuestas"></button>
+      {{-- <input class="btn btn-lg btn-warning" type="submit" id="submit" data-target="" value="Hacé click para revisar tus respuestas"></button> --}}
+      <input class="btn btn-lg btn-warning" type="submit" data-target="" value="Hacé click para revisar tus respuestas"></button>
       <br><br>Tu resultado es: <span id="grade">__</span>
       <!-- RESULTADOS -->
       <p id="grade2"></p>
@@ -110,87 +124,95 @@ $calificación = ['0','0','10',];
     </div>
     <!-- ROW -->
   </div>
+{{-- </form> --}}
+
 
 @endsection
 
-      <script>
-  		document.getElementById("form1").onsubmit = function() {
-  			uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
-  			dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
-  			tres = parseInt(document.querySelector('input[name = "tres"]:checked').value);
-  			cuatro = parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
-  			cinco = parseInt(document.querySelector('input[name = "cinco"]:checked').value);
-  			seis = parseInt(document.querySelector('input[name = "seis"]:checked').value);
-  			siete = parseInt(document.querySelector('input[name = "siete"]:checked').value);
-  			ocho = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
-  			nueve = parseInt(document.querySelector('input[name = "nueve"]:checked').value);
-  			diez = parseInt(document.querySelector('input[name = "diez"]:checked').value);
+<script>
+  var audio = new Audio("/Sample.wav ");
 
-  			result = uno + dos + tres + cuatro + cinco + seis + siete + ocho + nueve + diez; //aca vemos el resultado
+  function play() {
+    var audio = document.getElementById('audio');
 
-  			document.getElementById("grade").innerHTML = result;
+    if (audio.paused) {
+      audio.play();
+      $('#play').removeClass('glyphicon-play-circle')
+      $('#play').addClass('glyphicon-pause')
+    } else {
+      audio.pause();
+      audio.currentTime = 0
+      $('#play').addClass('glyphicon-play-circle')
+      $('#play').removeClass('glyphicon-pause')
+    }
+  }
+</script>
 
-  			grading = [
-  				// {score:0,feedback:"I don't think you studied", image: "0.jpg"},
-  				{
-  					score: 0,
-  					image: "../img-respuestas/0.jpg"
-  				},
-  				{
-  					score: 10,
-  					image: "../img-respuestas/0.jpg"
-  				},
-  				{
-  					score: 20,
-  					image: "../img-respuestas/0.jpg"
-  				},
+<script>
+			document.getElementById("form1").onsubmit = function() {
+				uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				tres = parseInt(document.querySelector('input[name = "tres"]:checked').value);
+				cuatro = parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
+				cinco = parseInt(document.querySelector('input[name = "cinco"]:checked').value);
+				seis = parseInt(document.querySelector('input[name = "seis"]:checked').value);
+				siete = parseInt(document.querySelector('input[name = "siete"]:checked').value);
+				ocho = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
+				nueve = parseInt(document.querySelector('input[name = "nueve"]:checked').value);
+				diez = parseInt(document.querySelector('input[name = "diez"]:checked').value);
 
-  				{
-  					score: 30,
-  					image: "../img-respuestas/30.jpg"
-  				},
-  				{
-  					score: 40,
-  					image: "../img-respuestas/30.jpg"
-  				},
+				result = uno + dos + tres + cuatro + cinco + seis + siete + ocho + nueve + diez;
 
-  				{
-  					score: 50,
-  					image: "../img-respuestas/50.jpg"
-  				},
-  				{
-  					score: 60,
-  					image: "../img-respuestas/50.jpg"
-  				},
+				document.getElementById("grade").innerHTML = result;
 
-  				{
-  					score: 70,
-  					image: "../img-respuestas/70.jpg"
-  				},
-  				{
-  					score: 80,
-  					image: "../img-respuestas/70.jpg"
-  				},
-  				{
-  					score: 90,
-  					image: "../img-respuestas/70.jpg"
-  				},
+				grading = [
+					{
+						score:0,feedback:"I don't think you studied",
+            image: "0.jpg"},
+					{
+						score: 10,
+						image: "../img-respuestas/0.jpg"},
+					{
+						score: 20,
+						image: "../img-respuestas/0.jpg"},
+					{
+						score: 30,
+						image: "../img-respuestas/30.jpg"},
+					{
+						score: 40,
+						image: "../img-respuestas/30.jpg"},
+					{
+						score: 50,
+						image: "../img-respuestas/50.jpg"},
+					{
+						score: 60,
+						image: "../img-respuestas/50.jpg"},
+					{
+						score: 70,
+						image: "../img-respuestas/70.jpg"},
+					{
+						score: 80,
+						image: "../img-respuestas/70.jpg"	},
+					{
+						score: 90,
+						image: "../img-respuestas/70.jpg"	},
+					{
+						score: 100,
+						image: "../img-respuestas/100.jpg"}
+				];
+
+				for (i = 0; i < grading.length; i++) {
+					if (result == grading[i].score) {
+						result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "'width='300'/>";
+					}
+				}
 
 
-  				{
-  					score: 100,
-  					image: "../img-respuestas/100.jpg"
-  				}
-  			];
+				document.getElementById("grade2").innerHTML = result2;
 
-  			for (i = 0; i < grading.length; i++) {
-  				if (result == grading[i].score) {
-  					result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
-  				}
-  			}
 
-  			document.getElementById("grade2").innerHTML = result2;
-
-  			return false; // required to not refresh the page; just leave this here
-  		} //this ends the submit function
-  	</script>
+				return false; // required to not refresh the page; just leave this here
+			} //this ends the submit function
+		</script>

@@ -1,7 +1,7 @@
 @extends('master')
 
 {{-- pasar nombre por parametro --}}
-@section('title', 'Arte')
+@section('title', 'Trivias')
 @section('nav-css','../css/navbar.css')
 @section('page-css','../css/trivias-master.css')
 @section('logo', '../img/Bibliomovil_logo_WHT.png')
@@ -35,8 +35,8 @@ $calificación = ['0','0','10',];
 
   <div class="container">
 
-    <form action="" class="register-form" id="form1">
-    {{-- <form action="" name="triviaForm" class="register-form" id="form1" onsubmit="return results();" method=""> --}}
+    <form action="" class="register-form" id="formTrivia" >
+    {{-- <form action="" name="triviaForm" class="register-form" id="formTrivia" onsubmit="return results();" method=""> --}}
 
       <section class="trivias">
         <div class="row">
@@ -104,7 +104,7 @@ $calificación = ['0','0','10',];
           <!-- ROW -->
         </div>
       </section>
-    </form>
+    {{-- </form> --}}
   </div>
   <!-- CONTAINER PRINCIPAL -->
 @endforeach
@@ -124,44 +124,30 @@ $calificación = ['0','0','10',];
     </div>
     <!-- ROW -->
   </div>
-{{-- </form> --}}
+</form>
 
 
 @endsection
 
-<script>
-  var audio = new Audio("/Sample.wav ");
+<script type="text/javascript">
 
-  function play() {
-    var audio = document.getElementById('audio');
+  element.style.background = "red";
 
-    if (audio.paused) {
-      audio.play();
-      $('#play').removeClass('glyphicon-play-circle')
-      $('#play').addClass('glyphicon-pause')
-    } else {
-      audio.pause();
-      audio.currentTime = 0
-      $('#play').addClass('glyphicon-play-circle')
-      $('#play').removeClass('glyphicon-pause')
-    }
-  }
 </script>
-
 <script>
-			document.getElementById("form1").onsubmit = function() {
-				uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
-				dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
-				uno = parseInt(document.querySelector('input[name = "uno"]:checked').value);
-				dos = parseInt(document.querySelector('input[name = "dos"]:checked').value);
-				tres = parseInt(document.querySelector('input[name = "tres"]:checked').value);
-				cuatro = parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
+			document.getElementById("formTrivia").onsubmit = function() {
+				uno   = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos   = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				uno   = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos   = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				tres  = parseInt(document.querySelector('input[name = "tres"]:checked').value);
+				cuatro= parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
 				cinco = parseInt(document.querySelector('input[name = "cinco"]:checked').value);
-				seis = parseInt(document.querySelector('input[name = "seis"]:checked').value);
+				seis  = parseInt(document.querySelector('input[name = "seis"]:checked').value);
 				siete = parseInt(document.querySelector('input[name = "siete"]:checked').value);
-				ocho = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
+				ocho  = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
 				nueve = parseInt(document.querySelector('input[name = "nueve"]:checked').value);
-				diez = parseInt(document.querySelector('input[name = "diez"]:checked').value);
+				diez  = parseInt(document.querySelector('input[name = "diez"]:checked').value);
 
 				result = uno + dos + tres + cuatro + cinco + seis + siete + ocho + nueve + diez;
 
@@ -169,7 +155,7 @@ $calificación = ['0','0','10',];
 
 				grading = [
 					{
-						score:0,feedback:"I don't think you studied",
+						score:0,feedback:"Me parece que podés hacerlo mejor",
             image: "0.jpg"},
 					{
 						score: 10,
@@ -203,16 +189,36 @@ $calificación = ['0','0','10',];
 						image: "../img-respuestas/100.jpg"}
 				];
 
-				for (i = 0; i < grading.length; i++) {
-					if (result == grading[i].score) {
-						result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "'width='300'/>";
+				for (i = 0; i < grading.length; i++)
+        {
+					if (result == grading[i].score)
+          {
+						result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "'width='400'/>";
 					}
 				}
 
-
 				document.getElementById("grade2").innerHTML = result2;
 
+			return false; // para no reargar la página
+    } //termina la funcion submit
+</script>
 
-				return false; // required to not refresh the page; just leave this here
-			} //this ends the submit function
-		</script>
+
+    <script>
+      var audio = new Audio("/Sample.wav ");
+
+      function play() {
+        var audio = document.getElementById('audio');
+
+        if (audio.paused) {
+          audio.play();
+          $('#play').removeClass('glyphicon-play-circle')
+          $('#play').addClass('glyphicon-pause')
+        } else {
+          audio.pause();
+          audio.currentTime = 0
+          $('#play').addClass('glyphicon-play-circle')
+          $('#play').removeClass('glyphicon-pause')
+        }
+      }
+    </script>

@@ -30,7 +30,7 @@ Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra
 
 // Route::get('/trivias/{$trivia_category_id}', 'TriviasController@showUnaTrivia');
 
-// Route::get('/trivias/editar-trivias', 'TriviasController@edit');
+Route::get('/editar-trivias', 'TriviasController@edit');
 /*
 Route::get('/trivias/arte-m', function () {
     return view('/trivias.trivia-master');
@@ -38,3 +38,7 @@ Route::get('/trivias/arte-m', function () {
 */
 
 Route::get('/castillo', 'CastilloController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

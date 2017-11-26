@@ -240,7 +240,7 @@
                                 <h4 class="subheading"></h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">En la actualidad el Bibliomóvil ha recorrido más de 250.000 Kilmétros, y ha compartido sus libros, historias y actividades con más de 500,000 personas de todo el país.</p>
+                                <p class="text-muted">En la actualidad el Bibliomóvil ha recorrido más de 350.000 Kilométros, y ha compartido sus libros, historias y actividades con más de 500,000 personas de todo el país.</p>
                             </div>
                         </div>
 
@@ -353,7 +353,7 @@
   </h4>
               </div>
               <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">El Bibliomóvil ha recorrido más de 250,000 km, y visitado a provincias de todo el territorio nacional, desde la Quiaca hasta Tierra del Fuego.</div>
+                <div class="panel-body">El Bibliomóvil ha recorrido más de 350,000 km, y visitado a provincias de todo el territorio nacional, desde la Quiaca hasta Tierra del Fuego.</div>
               </div>
             </div>
 
@@ -362,7 +362,7 @@
               <div class="panel-heading">
                 <h4 class="panel-title">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-    ¿Qué otras actividades se realizan en el Bibliomóvil?</a>
+    ¿Qué otras actividades se han realizado en el Bibliomóvil?</a>
   </h4>
               </div>
               <div id="collapse2" class="panel-collapse collapse">
@@ -383,8 +383,7 @@
   </h4>
               </div>
               <div id="collapse4" class="panel-collapse collapse">
-                <div class="panel-body">Las instituciones o autoridades interesadas en solicitar la visita del Bibliomóvil deberán enviar: <br><br> 1- Nota dirigida a la Sra. Presidenta de la Comisión Administradora de la Biblioteca del Congreso, Diputada de la Nación Teresa
-                  García.<br> 2- Nota dirigida al Director Coordinador General de la BCN, Sr. Alejandro Santa.<br> En ambas notas se deberá consignar el motivo de la solicitud, la/s localidad/es interesadas y el nombre de una persona responsable con quien
+                <div class="panel-body">Las instituciones o autoridades interesadas en solicitar la visita del Bibliomóvil deberán enviar: <br>Nota dirigida al Director Coordinador General de la BCN, Sr. Alejandro Santa.<br> Se deberá consignar el motivo de la solicitud, la/s localidad/es interesadas y el nombre de una persona responsable con quien
                   se establecerá contacto para determinar los distintos aspectos del acuerdo.</div>
               </div>
             </div>

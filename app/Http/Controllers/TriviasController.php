@@ -22,11 +22,11 @@ class TriviasController extends Controller
     public function showUnaTrivia($trivia_category_id)
     {
         // Este foreach nos muestra el unatrivia, de ahí podemos sacar los datos que querramos. En este caso $unaTrivia es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
-
-        $unaTrivia = Trivia::all()
-          ->where('trivia_category_id', $trivia_category_id);
-
-        return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
+        //
+        // $unaTrivia = Trivia::all()
+        //   ->where('trivia_category_id', $trivia_category_id);
+        //
+        // return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
     }
 
     /**
@@ -88,8 +88,8 @@ class TriviasController extends Controller
     public function edit()
     {
         // Este foreach nos muestra el producto, de ahí podemos sacar los datos que querramos. En este caso $producto es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
-        $trivia = Trivia::all();
-        return view('trivias.show', ['trivia' => $trivia]);
+        $todasTrivia = Trivia::all();
+        return view('trivias.editar-trivias', ['todasTrivia' => $todasTrivia]);
     }
 
     /**

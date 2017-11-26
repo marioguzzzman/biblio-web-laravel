@@ -10,8 +10,6 @@ class Trivia extends Model
   //   public $pregunta;
   //   public $ayuda;
   //   public $categoria_id;
-  //
-  //   // public $connDB;
 
     public $fillable = ['pregunta', 'ayuda', 'categoria_id'];
     protected $table = 'trivias'; // $table es palabra reservada, siempre protected

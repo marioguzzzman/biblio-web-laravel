@@ -14,31 +14,66 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-
-Route::get('/', 'HomeController@index');
-
-Route::get('/login', 'LoginController@index');
-
-Route::get('/registro', 'RegistroController@index');
-
-Route::get('/usuario-dashboard', 'UsuarioDashController@index');
-
-//-----Trivias
-Route::get('/trivias', 'TriviasController@index');
-Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra una trivia
-
-// Route::get('/trivias/{$trivia_category_id}', 'TriviasController@showUnaTrivia');
-
-Route::get('/editar-trivias', 'TriviasController@edit');
 /*
-Route::get('/trivias/arte-m', function () {
-    return view('/trivias.trivia-master');
-});
+|------------------------------------------
+| Principales
+|------------------------------------------
 */
 
+Route::get('/', 'HomeController@index'); //se muuestra el index
+Route::get('/usuario-dashboard', 'UsuarioDashController@index');
+
+/*
+|------------------------------------------
+| Trivias
+|------------------------------------------
+*/
+//VISTA DEL PÚBLICO
+Route::get('/trivias', 'TriviasController@index');//muestra el menú
+Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra una trivia en el trivia master
+
+//-----------ADMIN DE TRIVIAS--------------
+
+//PARA AGREGAR TRIVIAS
+Route::get('/crear/trivias/', 'TriviasController@create'); //nos lleva al formulario
+Route::post('/agregar/trivias/', 'TriviasController@store');
+
+//PARA EDITAR TRIVIAS
+Route::get('/editar-categoria', 'TriviasController@editCategoria'); //muestra las categorias para editar
+Route::get('/editar-trivias/{trivia_category_id}', 'TriviasController@editTrivia'); //muestra las categorias para editar
+
+Route::get('/trivias/{id}/edit', 'TriviasController@edit');
+Route::patch('/trivias/{id}', 'TriviasController@update');
+
+
+/*
+|------------------------------------------
+| Juegos de escritura
+|------------------------------------------
+*/
 Route::get('/castillo', 'CastilloController@index');
 
-Auth::routes();
 
+
+/*
+|------------------------------------------
+| Auth
+|------------------------------------------
+*/
+//estas son nuevas, aun no las exploro demasiado
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');

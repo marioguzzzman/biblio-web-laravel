@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trivia;
+use App\Category;
 use Illuminate\Http\Request;
 
 class TriviasController extends Controller
@@ -16,6 +17,13 @@ class TriviasController extends Controller
      */
     public function index()
     {
+        // $products = \App\Trivias::all();
+        //
+        // $variables = [
+        // 	"products" => $products,
+        // ];
+        //
+        //  return view('products.index', $variables);
         return view('trivias.preguntas-menu');
     }
 
@@ -36,18 +44,58 @@ class TriviasController extends Controller
      */
     public function create()
     {
+        // $categories = \App\Category::all();
+        // $properties = \App\Property::all();
         //
+        // $variables = [
+        //   "categories" => $categories,
+        //   "properties" => $properties,
+        // ];
+
+        return view('trivias.crear-trivias');
     }
 
     /**
      * Store a newly created resource in storage.
+     * Nos va a permitir validar y guardar los datos
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+          "pregunta" => "required",
+          "respuesta1" => "required",
+          "respuesta2" => "required",
+          "respuestaCorrecta" => "required",
+          "trivia_category_id" => "required",
+          // "category_id" => "required|numeric|between:1,3"
+        ];
+
+        $messages = [
+          "required" => "El :attribute es requerido!",
+          "numeric" => "El :attribute tiene que ser un número",
+          // "between" => "El :attribute tiene que estar entre :min y :max."
+        ];
+
+        $request->validate($rules, $messages);
+
+        $trivia = Trivia::create([
+          'pregunta' => $request->input('pregunta'),
+          'ayuda' => $request->input('ayuda'),
+          'respuesta1' => $request->input('respuesta1'),
+          'respuesta2' => $request->input('respuesta2'),
+          'respuestaCorrecta' => $request->input('respuestaCorrecta'),
+          'trivia_category_id' => $request->input('trivia_category_id'),
+        ]);
+
+        $category = Category::find($request->input('trivia_category_id'));
+
+        $trivia->category()->associate($category);
+        $trivia->save();
+
+        return redirect('/editar-categoria');
     }
 
     /**
@@ -58,11 +106,19 @@ class TriviasController extends Controller
      */
     public function show($trivia_category_id)
     {
-      // $request=$request->input();
         $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
-        return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
 
-    //ejemplo para usar en vista
+        $variables = [
+              "unaTrivia" => $unaTrivia,
+          ];
+        return view('trivias.trivia-master', $variables);
+
+
+        // $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
+        //
+        // return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
+
+        //ejemplo para usar en vista
             // @foreach ($unaTrivia as $unaTrivia)
             //   <h1>{{$unaTrivia->trivia_category_id}}</h1>
             //   <h2>{{$unaTrivia->pregunta}}</h2>
@@ -85,12 +141,30 @@ class TriviasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+
+
+    public function edit($id)
+    {
+        $todasCategory = Category::all();
+        return view('trivias.editar-category', ['todasCategory' => $todasCategory]);
+    }
+
+
+    public function editCategoria()
     {
         // Este foreach nos muestra el producto, de ahí podemos sacar los datos que querramos. En este caso $producto es una collection (lo cual es un array potenciado, de la mano de eloquent) y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
-        $todasTrivia = Trivia::all();
-        return view('trivias.editar-trivias', ['todasTrivia' => $todasTrivia]);
+
+        $todasCategory = Category::all();
+        return view('trivias.editar-category', ['todasCategory' => $todasCategory]);
     }
+    //
+    //
+    // public function editTrivia($trivia_category_id)
+    // {
+    //     // $todasTrivia = Trivia::all();
+    //     $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
+    //     return view('trivias.editar-trivias', ['unaTrivia' => $unaTrivia]);
+    // }
 
     /**
      * Update the specified resource in storage.

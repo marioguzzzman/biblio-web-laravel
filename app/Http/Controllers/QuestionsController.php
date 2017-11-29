@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DB_Question;
-// use App\Trivia;
-use App\REF_question_category;
+use App\REF_Trivias_Category;
+use App\Rel_Question_Answer;
+use App\DB_Answer;
 
 class QuestionsController extends Controller
 {
@@ -17,7 +18,7 @@ class QuestionsController extends Controller
     public function index()
     {
         //$categoryAll es una collection:un array potenciado, de la mano de eloquent, y nos permite acceder a sus propiedades de la misma forma que accedemos a atributos de un objeto.
-        $categoryAll = REF_question_category::all();
+        $categoryAll = REF_Trivias_Category::all();
         $variables = [
         'categoryAll' => $categoryAll,
       ];
@@ -31,7 +32,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        $categoryAll = REF_question_category::all();
+        $categoryAll = REF_Trivias_Category::all();
         $variables = [
       'categoryAll' => $categoryAll,
     ];
@@ -72,7 +73,7 @@ class QuestionsController extends Controller
         'cat_id' => $request->input('cat_id'),
       ]);
 
-      $category = REF_question_category::create([
+      $category = REF_Trivias_Category::create([
         'trivia_category' => $request->input('trivia_category'),
       ]);
 
@@ -94,8 +95,13 @@ class QuestionsController extends Controller
 
         $questions = DB_Question::where('cat_id', $id)->inRandomOrder()->take(10)->get();//para que funcionen al azar las preguntas
 
+        foreach ($questions as $question) {
+          $question->questions_answers->shuffle()->take(3);
+        }
+
         $variables = [
           "questions" => $questions,
+      		// "category" => $questions->category,
           // "category" => $unaTrivia->category,//esto dice nico que no es necesario
         ];
         return view('trivias.triviaMasterShow', $variables);

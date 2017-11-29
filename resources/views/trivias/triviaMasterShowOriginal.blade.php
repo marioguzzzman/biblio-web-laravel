@@ -62,33 +62,19 @@ $calificación = ['0','0','10',];
                 @endif --}}
 
                           <!-- EMPIEZAN BULLETS -->
-
-{{-- ESTE SI VA --}}
-                {{-- <div class="col-md-10 col-md-offset-2 bullet">
-                  <!-- <input type="radio" class="form-check-input" name="uno?>" value="0"/> -->
-                  <!-- RESPUESTA1-->
-              @foreach ($question->questions_answers as $answers)
-                <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="{{ $answers->respuesta_value }}" />
-                <label for="">{{ $answers->respuesta }}</label>  <br />
-
-              @endforeach
-                </div> --}}
-
-
-                    <!-- EMPIEZAN BULLETS -->
                 <div class="col-md-10 col-md-offset-2 bullet">
                   <!-- <input type="radio" class="form-check-input" name="uno?>" value="0"/> -->
                   <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="0" />
                   <!-- RESPUESTA1-->
-                  <span class ="{{$bulletName[$i]}}">{{$question->respuesta1}}</span>
+                  {{$question->respuesta1}}
                   <br>
                   <input type="radio" lass="form-check-input" name="{{$bulletName[$i]}}" value="0" />
                   <!--  RESPUESTA2-->
-                  <span class ="{{$bulletName[$i]}}">{{$question->respuesta2}}</span>
+                  {{$question->respuesta2}}
                   <br>
-                  <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="1" />
+                  <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="10" />
                   <!--  RESPUESTA3 -->
-                  <span class ="{{$bulletName[$i]}}">{{$question->respuestaCorrecta}}</span>
+                  {{$question->respuestaCorrecta}}
                   <br>
                   <br>
                 </div>
@@ -130,17 +116,16 @@ $calificación = ['0','0','10',];
     <div class="col-md4 col-md-offset-3">
       <!-- COL -->
       {{-- <input class="btn btn-lg btn-warning" type="submit" id="submit" data-target="" value="Hacé click para revisar tus respuestas"></button> --}}
-      <input class="btn btn-lg btn-warning" type="button" data-target="" id="sumar" value="Hacé click para revisar tus respuestas"></button>
+      <input class="btn btn-lg btn-warning" type="submit" data-target="" value="Hacé click para revisar tus respuestas"></button>
       <br><br>Tu resultado es: <span id="grade">__</span>
       <!-- RESULTADOS -->
+      <p id="grade2"></p>
+      {{-- {{$errores}} --}}
       <!-- COL -->
     </div>
     <!-- ROW -->
   </div>
 </form>
-
-
-<script type="text/javascript" src="/js/trivia_sumar.js"></script>
 
 
 @endsection
@@ -150,6 +135,75 @@ $calificación = ['0','0','10',];
   element.style.background = "red";
 
 </script>
+<script>
+			document.getElementById("formTrivia").onsubmit = function() {
+				uno   = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos   = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				uno   = parseInt(document.querySelector('input[name = "uno"]:checked').value);
+				dos   = parseInt(document.querySelector('input[name = "dos"]:checked').value);
+				tres  = parseInt(document.querySelector('input[name = "tres"]:checked').value);
+				cuatro= parseInt(document.querySelector('input[name = "cuatro"]:checked').value);
+				cinco = parseInt(document.querySelector('input[name = "cinco"]:checked').value);
+				seis  = parseInt(document.querySelector('input[name = "seis"]:checked').value);
+				siete = parseInt(document.querySelector('input[name = "siete"]:checked').value);
+				ocho  = parseInt(document.querySelector('input[name = "ocho"]:checked').value);
+				nueve = parseInt(document.querySelector('input[name = "nueve"]:checked').value);
+				diez  = parseInt(document.querySelector('input[name = "diez"]:checked').value);
+
+				result = uno + dos + tres + cuatro + cinco + seis + siete + ocho + nueve + diez;
+
+				document.getElementById("grade").innerHTML = result;
+
+				grading = [
+					{
+						score:0,feedback:"Me parece que podés hacerlo mejor",
+            image: "0.jpg"},
+					{
+						score: 10,
+						image: "../img-respuestas/0.jpg"},
+					{
+						score: 20,
+						image: "../img-respuestas/0.jpg"},
+					{
+						score: 30,
+						image: "../img-respuestas/30.jpg"},
+					{
+						score: 40,
+						image: "../img-respuestas/30.jpg"},
+					{
+						score: 50,
+						image: "../img-respuestas/50.jpg"},
+					{
+						score: 60,
+						image: "../img-respuestas/50.jpg"},
+					{
+						score: 70,
+						image: "../img-respuestas/70.jpg"},
+					{
+						score: 80,
+						image: "../img-respuestas/70.jpg"	},
+					{
+						score: 90,
+						image: "../img-respuestas/70.jpg"	},
+					{
+						score: 100,
+						image: "../img-respuestas/100.jpg"}
+				];
+
+				for (i = 0; i < grading.length; i++)
+        {
+					if (result == grading[i].score)
+          {
+						result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "'width='400'/>";
+					}
+				}
+
+				document.getElementById("grade2").innerHTML = result2;
+
+			return false; // para no reargar la página
+    } //termina la funcion submit
+</script>
+
 
     <script>
       var audio = new Audio("/Sample.wav ");

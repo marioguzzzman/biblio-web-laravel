@@ -89,7 +89,8 @@
 						@foreach ($categoryAll as $category)
 							<option value="{{$category->id}}">{{$category->trivia_category}}</option>
 						 @endforeach
-						<option value="7">Nueva categoría</option>
+						 {{-- COMO PONER UN AUTOINCREMENTAL DE ID --}}
+						<option value="0">Nueva categoría</option>
 				    </select>
 
 						@if ($errors->has('cat_id'))
@@ -102,9 +103,10 @@
 							</div>
 						@endif
 				</div>
+				{{-- on change y desaparece id de formulario --}}
 
 				{{-- esto esta bien? como hago para que aparezca solo si selecciona como opcion nueva categoria? --}}
-				<div class="form-group">
+				<div class="form-group" id="nuevaCategory">
 					<label for="trivia_category">Nombre de la nueva Categoría</label>
 					<input type="text" name="trivia_category" id="trivia_category" value="{{old('trivia_category')}}" class="form-control">
 

@@ -62,6 +62,20 @@ margin-top: 5px;
 width: 70%;
 }
 
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered a{
+  text-align: center;
+
+   color: white;
+}
+
 /*=========================
   FOOTER Icons
  ================= */

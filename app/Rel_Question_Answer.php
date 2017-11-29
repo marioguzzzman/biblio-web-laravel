@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Property extends Model
+class Rel_Question_Answer extends Model
 {
     //
 }

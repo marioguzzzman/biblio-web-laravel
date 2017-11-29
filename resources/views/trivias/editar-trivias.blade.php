@@ -1,7 +1,7 @@
 @extends('master')
 
 {{-- pasar nombre por parametro --}}
-@section('title', 'Trivias')
+@section('title', 'Edición de Trivias')
 @section('nav-css','../css/navbar.css')
 {{-- @section('page-css','../css/main_edit.css') --}}
 @section('logo', '../img/Bibliomovil_logo_WHT.png')
@@ -41,7 +41,6 @@
 
 					<tr>
 						<td>Respuesta 2: {{$trivia->respuesta2}}</td>
-						{{-- <td>{{ $product->category->name }}</td> --}}
 						<td style="text-align: right;">
 							<a href="" class="btn btn-success">
 								<i class="fa fa-pencil"></i>
@@ -51,7 +50,6 @@
 
 					<tr>
 						<td class = "success"> Respuesta Correcta: {{$trivia->respuestaCorrecta}} </td>
-						{{-- <td>{{ $product->category->name }}</td> --}}
 						<td style="text-align: right;">
 							<a href="" class="btn btn-success">
 								<i class="fa fa-pencil"></i>
@@ -60,7 +58,6 @@
 					</tr>
 
 					<td> <p>{{$trivia->ayuda}}</p> </td>
-					{{-- <td>{{ $product->category->name }}</td> --}}
 					<td style="text-align: right;">
 						<a href="" class="btn btn-success">
 							<i class="fa fa-pencil"></i>

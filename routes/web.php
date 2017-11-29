@@ -36,7 +36,7 @@ Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra
 
 //PARA AGREGAR TRIVIAS
 Route::get('/crear/trivias/', 'TriviasController@create'); //nos lleva al formulario
-Route::post('/agregar/trivias/', 'TriviasController@store');
+Route::post('/agregar/trivias/', 'TriviasController@store'); //para validar y guardar
 
 //PARA EDITAR TRIVIAS
 Route::get('/editar-categoria', 'TriviasController@editCategoria'); //muestra las categorias para editar
@@ -45,6 +45,20 @@ Route::get('/editar-trivias/{trivia_category_id}', 'TriviasController@editTrivia
 Route::get('/trivias/{id}/edit', 'TriviasController@edit');
 Route::patch('/trivias/{id}', 'TriviasController@update');
 
+
+
+/*
+|------------------------------------------
+| Question
+|------------------------------------------
+*/
+
+Route::get('/preguntasMenu', 'QuestionsController@index');
+Route::get('/preguntasMenu/{id}', 'QuestionsController@show');
+
+//AGREGAR
+Route::get('/preguntas/crear', 'QuestionsController@create'); //ir al formulario
+Route::post('/preguntas/crear', 'QuestionsController@store'); //guardar y validar
 
 /*
 |------------------------------------------

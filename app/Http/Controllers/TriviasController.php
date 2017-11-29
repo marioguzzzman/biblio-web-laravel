@@ -87,10 +87,13 @@ class TriviasController extends Controller
           'respuesta1' => $request->input('respuesta1'),
           'respuesta2' => $request->input('respuesta2'),
           'respuestaCorrecta' => $request->input('respuestaCorrecta'),
-          'trivia_category_id' => $request->input('trivia_category_id'),
         ]);
 
-        $category = Category::find($request->input('trivia_category_id'));
+        // $category = Category::find($request->input('trivia_category_id'));
+
+        $category = Category::create([
+          'trivias_cat' => $request->input('trivias_cat'),
+        ]);
 
         $trivia->category()->associate($category);
         $trivia->save();
@@ -107,16 +110,13 @@ class TriviasController extends Controller
     public function show($trivia_category_id)
     {
         $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
+        // $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->inRandomOrder()->take(10)->get(); //para que funcionen al azar las preguntas
 
         $variables = [
               "unaTrivia" => $unaTrivia,
+              "category" => $unaTrivia->category,//esto dice nico que no es necesario
           ];
         return view('trivias.trivia-master', $variables);
-
-
-        // $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
-        //
-        // return view('trivias.trivia-master', ['unaTrivia' => $unaTrivia]);
 
         //ejemplo para usar en vista
             // @foreach ($unaTrivia as $unaTrivia)
@@ -149,6 +149,7 @@ class TriviasController extends Controller
         return view('trivias.editar-category', ['todasCategory' => $todasCategory]);
     }
 
+//todo esto podria estar en un edit solo
 
     public function editCategoria()
     {
@@ -159,12 +160,12 @@ class TriviasController extends Controller
     }
     //
     //
-    // public function editTrivia($trivia_category_id)
-    // {
-    //     // $todasTrivia = Trivia::all();
-    //     $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
-    //     return view('trivias.editar-trivias', ['unaTrivia' => $unaTrivia]);
-    // }
+    public function editTrivia($trivia_category_id)
+    {
+        // $todasTrivia = Trivia::all();
+        $unaTrivia = Trivia::where('trivia_category_id', $trivia_category_id)->get();
+        return view('trivias.editar-trivias', ['unaTrivia' => $unaTrivia]);
+    }
 
     /**
      * Update the specified resource in storage.

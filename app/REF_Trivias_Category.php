@@ -8,7 +8,7 @@ class REF_Trivias_Category extends Model
 {
   protected $table = "REF_trivias_categories";
 
-  protected $guarded = [];
+  protected $guarded = []; //con esto se pueden escribir todas las columnas
 
   public function questions(){
     return $this->hasMany('\App\DB_Question', 'cat_id', 'id');

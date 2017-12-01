@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DB_Question extends Model
 {
-  public $fillable = ['pregunta', 'ayuda', 'respuesta1', 'respuesta2', 'respuestaCorrecta', 'cat_id', 'img'];
+  public $fillable = ['pregunta', 'ayuda', 'respuesta1', 'respuesta2', 'respuestaCorrecta', 'correcta_id', 'cat_id', 'img', 'slug'];
   protected $table = 'trivias'; // $table es palabra reservada, siempre protected
 
   public function category(){

@@ -1,15 +1,19 @@
 		window.addEventListener("load", function() {
 
-// 			var bulletName = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', ];
-	//
+
+//INTENTO DE REDUCIR EL CÓDIGO POR MEDIO DE FOR
+	// 		var bulletName = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', ];
+	// //
 	// 			for (var i = 1; i < bulletName.length; i++) {
-	// 				console.log(bulletName[i]);
-	//
-	// }
+	// 				var uno = 'document.querySelector('input[name = "'+ bulletName[i] +'"]:checked').value;'
+	// 				console.log(uno);
+  //
+	// 			}
+	var sumar = document.querySelector('#sumar');
 
 		  sumar.addEventListener("click", function() {
 
-		  var sumar = document.querySelector('#sumar');
+				var bulletName = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', ];
 
 		    uno = document.querySelector('input[name = "uno"]:checked').value;
 		    dos = document.querySelector('input[name = "dos"]:checked').value;
@@ -24,11 +28,9 @@
 
 		    result = parseInt(uno) + parseInt(dos) + parseInt(tres) + parseInt(cuatro) + parseInt(cinco) + parseInt(seis) + parseInt(siete) + parseInt(ocho) + parseInt(nueve) + parseInt(diez);
 
-		    // result = parseInt(uno) + parseInt(dos); //TEST 
+		    // result = parseInt(uno) + parseInt(dos); //TEST
 
 		    document.getElementById("grade").innerHTML = result;
-
-		    var bulletName = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', ];
 
 		    verError();
 
@@ -85,16 +87,6 @@
 							 document.querySelector('.diezVerError').style.display = 'none';
 						}
 
-		      // for (var i = 1; i < bulletName.length; i++) {
-		      //   console.log(bulletName[1]);
-		      //   if (bulletName[i] == 0) {
-		      //     console.log("holaaa");
-		      //     document.querySelector('.unoVerError').style.display = 'block';
-		      //   } else {
-		      //     document.querySelector('.unoVerError').style.display = 'none';
-		      //   }
-		      // }
-
-		    };
+		    }; // cierre verError
 		  }); //cierre sumar.addEventListener("click", function() {
 		}); //on window

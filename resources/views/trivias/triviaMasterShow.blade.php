@@ -9,14 +9,14 @@
 
     @php
     // $nombreTrivia = 'Arte'; // $nombreCarpetaImagen = $_POST['nombreCarpetaImagen']; // $nombreCarpetaImagen = $_GET['nombreCarpetaImagen'];
-      $bulletName = ['cero', 'uno','dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',]; $calificación = ['0','0','10',];
+      $bulletName = ['cero', 'uno','dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',];
+      // $calificación = ['0','0','10',];
     @endphp
 
     <!-- CONTAINER PRINCIPAL -->
     <header>
       <br><br>
       <h1>¿Cuánto sabemos sobre: {{$questions->first()->category->trivia_category}}?</h1>
-      <!-- <h1>¿Cuánto sabemos sobre Arte?</h1> -->
     </header>
 
     @php
@@ -36,21 +36,17 @@
 
             <section class="trivias">
               <div class="row">
-                <!-- ROW -->
                 <div class="col-md-10 col-md-offset-1">
-                  <!-- COL -->
+
                   <!-- PREGUNTA  -->
                   <article class="pregunta">
-
                     <h4 class="{{$bulletName[$i]}}">{{$question->pregunta}}</h4>
 
-
-                    <!-- <h4>PREGUNTA 1/ IMAGEN</p> -->
-                    {{-- <img src="/img/trivias/img-{{$questions->first()->category->trivia_category}}/{{$question->img}}.jpg" alt="img-{{$questions->first()->category->trivia_category}}/{{$question->img}}.jpg">
-                    <br> --}}
+                    <img src="/img/trivias/img-{{$questions->first()->category->trivia_category}}/{{$question->img}}.jpg" alt="img-{{$questions->first()->category->trivia_category}}/{{$question->img}}.jpg">
+                    <br>
 
                     <!-- MUSICA  -->
-                    {{-- @if ( echo "$questions->first()->category->trivia_category" == 'M\u00fasica')
+                    {{-- @if ( {{$questions->first()->category->trivia_category}} === 'Música')
                       <div class="col-md-10 col-md-offset-2 bullet">
                         <audio controls>
                           <source src="/img/trivias/img-musica/{{$question->img}}.mp3">
@@ -58,14 +54,18 @@
                       </div>
                       <br><br>
                     @endif --}}
+
+                    <!-- DISPLAY DE ERRORES -->
                     <div style="display:none" class="{{$bulletName[$i]."VerError"}} col-md-10 col-md-offset-1 verError">
                         <span class="alert alert-danger">{{"Elige otra respuesta"}}</span>
                         <br><br>
                     </div>
+                    <!-- FIN DISPLAY DE ERRORES -->
 
-                    <!-- EMPIEZAN RESPUESTAS BULLETS CON MODELS -->
+                    <!-- EMPIEZAN RESPUESTAS BULLETS CON MODELOS DE LARAVEL -->
                     <div class="col-md-10 col-md-offset-2 bullet">
                       <!-- <input type="radio" class="form-check-input" name="uno?>" value="0"/> -->
+
                       @foreach ($question->questions_answers as $answers)
                         <input type="radio" class="form-check-input" name="{{$bulletName[$i]}}" value="{{ $answers->respuesta_value }}"/>
                         <label for="">{{ $answers->respuesta }}</label>
@@ -92,8 +92,11 @@
                       <br>
                       <br>
                     </div> --}}
+
                     <!-- /TERMINAN BULLETS -->
 
+
+                    <!-- PARA SABER MAS -->
                     <p>
                       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#saber{{$i}}" aria-expanded="false" aria-controls="collapseExample">Para saber más</button>
                     </p>
@@ -111,18 +114,20 @@
                         </div>
                       </div>
                     </div>
+
                   </article>
-                  <!-- /PREGUNTA  -->
+                  <!-- /FIN PREGUNTA  -->
+
                   <!-- COL -->
                 </div>
                 <!-- ROW -->
               </div>
-            </section>
-            {{-- </form> --}}
+            </section> <!-- SECCION TRIVIAS -->
       </div>
       <!-- CONTAINER PRINCIPAL -->
     @endforeach
     <!-- FOREACH PARA OBJETO -->
+
     <br>
     <!-- RESULTADOS -->
       <div class="row">
@@ -135,12 +140,19 @@
         </div>
         <!-- ROW -->
       </div>
-    </form>
+
+
+    </form>    <!-- FIN FORMULARIO -->
+
 
     <!-- SCRIPTS SUMA-->
     <script type="text/javascript" src="/js/trivia_sumar.js"></script>
 
     <!-- SCRIPTS MUSICA-->
     <script type="text/javascript" src="/js/trivia_musica.js"></script>
+
+{{-- DESIGN VALIDATOR http://khan.github.io/tota11y/ --}}
+    {{-- <script src="tota11y.min.js"></script> --}}
+
 
   @endsection

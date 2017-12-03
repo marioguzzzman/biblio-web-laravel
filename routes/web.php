@@ -28,22 +28,22 @@ Route::get('/usuario-dashboard', 'UsuarioDashController@index');
 | Trivias
 |------------------------------------------
 */
-//VISTA DEL PÚBLICO
-Route::get('/trivias', 'TriviasController@index');//muestra el menú
-Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra una trivia en el trivia master
-
-//-----------ADMIN DE TRIVIAS--------------
-
-//PARA AGREGAR TRIVIAS
-Route::get('/crear/trivias/', 'TriviasController@create'); //nos lleva al formulario
-Route::post('/agregar/trivias/', 'TriviasController@store'); //para validar y guardar
-
-//PARA EDITAR TRIVIAS
-Route::get('/editar-categoria', 'TriviasController@editCategoria'); //muestra las categorias para editar
-Route::get('/editar-trivias/{trivia_category_id}', 'TriviasController@editTrivia'); //muestra las categorias para editar
-
-Route::get('/trivias/{id}/edit', 'TriviasController@edit');
-Route::patch('/trivias/{id}', 'TriviasController@update');
+// //VISTA DEL PÚBLICO
+// Route::get('/trivias', 'TriviasController@index');//muestra el menú
+// Route::get('/trivias/{trivia_category_id}', 'TriviasController@show'); //muestra una trivia en el trivia master
+//
+// //-----------ADMIN DE TRIVIAS--------------
+//
+// //PARA AGREGAR TRIVIAS
+// Route::get('/crear/trivias/', 'TriviasController@create'); //nos lleva al formulario
+// Route::post('/agregar/trivias/', 'TriviasController@store'); //para validar y guardar
+//
+// //PARA EDITAR TRIVIAS
+// Route::get('/editar-categoria', 'TriviasController@editCategoria'); //muestra las categorias para editar
+// Route::get('/editar-trivias/{trivia_category_id}', 'TriviasController@editTrivia'); //muestra las categorias para editar
+//
+// Route::get('/trivias/{id}/edit', 'TriviasController@edit');
+// Route::patch('/trivias/{id}', 'TriviasController@update');
 
 
 
@@ -53,12 +53,36 @@ Route::patch('/trivias/{id}', 'TriviasController@update');
 |------------------------------------------
 */
 
-Route::get('/preguntasMenu', 'QuestionsController@index');
-Route::get('/preguntasMenu/{id}', 'QuestionsController@show');
+//VISTA DEL PÚBLICO
+Route::get('/preguntasMenu', 'QuestionsController@index'); //ver menu
+Route::get('/preguntasMenu/{id}', 'QuestionsController@show'); // ver la trivia en si misma
+
+
+/*
+|------------------------------------------
+| ACCIONES ADMIN
+|------------------------------------------
+*/
+
+//VISTAS DE EDICION
+Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory'); // Editar categorias
+Route::get('/preguntas/showEdit/{id}', 'QuestionsController@showEditTrivia'); //Editar trivias
+
 
 //AGREGAR
 Route::get('/preguntas/crear', 'QuestionsController@create'); //ir al formulario
 Route::post('/preguntas/crear', 'QuestionsController@store'); //guardar y validar
+
+//UPDATE
+Route::get('/categoria/editarCategoria/{id}', 'QuestionsController@editCategory');
+Route::patch('/categoria/{id}', 'QuestionsController@updateCategory');
+
+
+//BORRAR
+Route::delete('/preguntas/deleteCategoria/{id}', 'QuestionsController@destroyCategory'); // Borrar categorias
+Route::delete('/preguntas/deleteTrivia/{id}', 'QuestionsController@destroyTrivia'); // Borrar propiedades de trivias
+
+
 
 /*
 |------------------------------------------

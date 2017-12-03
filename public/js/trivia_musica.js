@@ -1,8 +1,8 @@
 		window.addEventListener("load", function() {
 
 			// var audio = new Audio("/Sample.wav ");
-
-			play();
+      //
+			// play();
 
 			function play() {
 				var audio = document.getElementById('audio');

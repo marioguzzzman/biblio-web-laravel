@@ -15,26 +15,33 @@
 				{{-- SIEMPRE AGREGAR EL CSFRT_FIELD --}}
 				{{ csrf_field() }}
 
+
+				{{-- INPUT PREGUNTA --}}
 				<div class="form-group">
 					<label for="pregunta">Pregunta</label>
 					<input type="text" name="pregunta" id="pregunta" value="{{old('pregunta')}}" class="form-control">
 
-										@if ($errors->has('pregunta'))
-											<div class="alert alert-danger">
-												<ul>
-													@foreach ($errors->get('pregunta') as $error)
-													    <li>{{ $error }}</li>
-													@endforeach
-												</ul>
-											</div>
-										@endif
+						@if ($errors->has('pregunta'))
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->get('pregunta') as $error)
+									    <li>{{ $error }}</li>
+									@endforeach
+								</ul>
+							</div>
+						@endif
 				</div>
+				{{-- FIN INPUT PREGUNTA --}}
 
+				{{-- INPUT AYUDA --}}
 				<div class="form-group">
 					<label for="ayuda">Ayuda / Para sabér más / Tip:</label>
 					<input type="text" name="ayuda" id="ayuda" value="{{old('ayuda')}}" class="form-control">
 				</div>
+				{{-- FIN INPUT AYUDA --}}
 
+
+				{{-- INPUT RESPUESTAS --}}
 				<div class="form-group">
 					<label for="respuesta1">Respuesta 1</label>
 					<input type="text" name="respuesta1" id="respuesta1" value="{{old('respuesta1')}}" class="form-control">
@@ -50,6 +57,7 @@
 						@endif
 
 				</div>
+
 				<div class="form-group">
 					<label for="respuesta2">Respuesta 2</label>
 					<input type="text" name="respuesta2" id="respuesta2" value="{{old('respuesta2')}}" class="form-control">
@@ -81,16 +89,19 @@
 					@endif
 
 				</div>
+				{{-- FIN INPUT RESPUESTAS --}}
 
+
+				{{-- SELECCION DE CATEGORIA --}}
 				<div class="form-group">
 				  <label for="cat_id">Selecciona una categoría</label>
-				  <select class="form-control" id="cat_id" name="cat_id">
-				    <option value="">Selecciona una categoría</option>
+				  <select class="form-control seleccionCategoria activitySelector" id="cat_id" name="cat_id">
+				    <option value="null">Selecciona una categoría</option>
 						@foreach ($categoryAll as $category)
-							<option value="{{$category->id}}">{{$category->trivia_category}}</option>
+							<option  value="{{$category->id}}">{{$category->trivia_category}}</option>
 						 @endforeach
 						 {{-- COMO PONER UN AUTOINCREMENTAL DE ID --}}
-						<option value="0">Nueva categoría</option>
+						<option  value="0"> Nueva categoría</option>
 				    </select>
 
 						@if ($errors->has('cat_id'))
@@ -103,10 +114,10 @@
 							</div>
 						@endif
 				</div>
-				{{-- on change y desaparece id de formulario --}}
+				{{-- FIN SELECCION DE CATEGORIA --}}
 
-				{{-- esto esta bien? como hago para que aparezca solo si selecciona como opcion nueva categoria? --}}
-				<div class="form-group" id="nuevaCategory">
+				{{-- INPUT QUE APARECE SI SELECCIONAN NUEVA CATEGORIA --}}
+				<div class="form-group nuevaCategoria" style="display:none">
 					<label for="trivia_category">Nombre de la nueva Categoría</label>
 					<input type="text" name="trivia_category" id="trivia_category" value="{{old('trivia_category')}}" class="form-control">
 
@@ -120,10 +131,16 @@
 						</div>
 					@endif
 				</div>
+				{{-- FIN INPUT QUE APARECE SI SELECCIONAN NUEVA CATEGORIA --}}
+
 
 				<div class="form-group">
 					<button type="submit" name="button" class="btn btn-primary">Enviar</button>
 				</div>
 			</form>
 		</div>
+
+		{{-- OCULTAR OBJETOS --}}
+		<script type="text/javascript" src="/js/show-hide-objects.js"></script>
+
 @endsection

@@ -2,19 +2,23 @@
 
 {{-- pasar nombre por parametro --}}
 @section('title', 'Editar Trivias')
-@section('nav-css','../css/navbar.css')
+@section('nav-css','/css/navbar.css')
 {{-- @section('page-css','../css/main_edit.css') --}}
-@section('logo', '../img/Bibliomovil_logo_WHT.png')
+@section('logo', '/img/Bibliomovil_logo_WHT.png')
 
 @section('content')
 
+
+
 <div class="container">
+	<br><br><br>
 	<a href="/categoria/showEdit" class="btn btn-default">Volver a Categorías</a>
 	<br><br>
 
 	<a href="/preguntas/crear" class="btn btn-default">Crear pregunta</a>
 	<br>
 		<h1>Estas editando la categoría: {{$questions->first()->category->trivia_category}}</h1>
+
 	<br>
 		<p><strong>Intrucciones:</strong>
 		En esta sección es posible: <br>
@@ -28,16 +32,21 @@
 					<tr>
 
 						<td> <strong>{{$question->id}}. {{$question->pregunta}}</strong>  </td>
+
+
+
 						{{-- <td>{{ $product->category->name }}</td> --}}
 						<td style="text-align: right;">
 							<a href="/categoria/editarCategoria/{{ $question->id }}" class="btn btn-success">
 							{{-- <a href="/editar-trivia/{{$trivia->id}}" class="btn btn-success"> --}}
 								<i class="fa fa-pencil"></i>
 							</a><br><br>
-							<form action="/preguntas/deleteTrivia/{{$question->id}}" method="post">
+							<form action="/preguntas/deleteTrivia/{{$question->id}}"  method="post" class="deleteTrivia">
 								{{ csrf_field() }}
 								{{ method_field('delete') }}
-								 <button class="fa fa-trash btn btn-danger" type="submit"></button>
+								 <button class="fa fa-trash btn btn-danger"  type="submit"></button>
+
+
 							{{-- <a href="" class="btn btn-danger"> --}}
 								{{-- <i class="fa fa-trash"></i> --}}
 							{{-- </a> --}}
@@ -112,4 +121,25 @@
 <!-- SCRIPTS SUMA-->
 {{-- <script type="text/javascript" src="/js/edicion_correcta.js"></script> --}}
 
+
+<script type="text/javascript">
+window.onload = function() {
+
+var borrar = document.querySelectorAll(".deleteTrivia");
+borrar.forEach(function(elem) {
+	elem.addEventListener('submit', ConfirmDelete);
+});
+
+function ConfirmDelete(event){
+	var x = confirm("¿Realmente querés borrar este elemento?");
+
+	if (x){
+			 // return true;
+	}else{
+		 event.preventDefault();
+}
+}
+}
+
+</script>
 @endsection

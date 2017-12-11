@@ -2,16 +2,17 @@
 
 {{-- pasar nombre por parametro --}}
 @section('title', 'Edicion de Trivias')
-@section('nav-css','../css/navbar.css')
+@section('nav-css','/css/navbar.css')
 {{-- @section('page-css','../css/main_edit.css') --}}
-@section('logo', '../img/Bibliomovil_logo_WHT.png')
+@section('logo', '/img/Bibliomovil_logo_WHT.png')
 
 @section('content')
 
-@foreach ($questions as $question)<!-- FOREACH PARA OBJETO -->
+@foreach ($questions as $question)<!-- FOREACH PARA PREGUNTAS -->
 
 <div class="container">
 	<!-- NAVEGACION -->
+	<br><br><br>
 	<a href="/preguntas/showEdit/{{$question->cat_id}}" class="btn btn-default">Volver a Todas las preguntas</a>
 	<br>
 	<!-- TEXTO -->
@@ -25,13 +26,19 @@
 		1) <strong>Editar</strong> el contenido de preguntas, respuestas y secciones de ayuda.<br>
 	<br></p>
 
-			<table class="table table-bordered">
+{{-- ---------------------------  TABLA   --------------------------- --}}
+
+		<table class="table table-bordered">
 		{{-- <table class="table table-striped table-bordered"> --}}
-		<!-- FORMULARIO -->
+
+{{-- ---------------------------  FORMULARIO   --------------------------- --}}
 		<form class="col-md-5" action="/categoria/{{$question->id}}" method="post">
 			{{ csrf_field() }}
 	    {{ method_field('patch') }}
 			<tbody>
+
+
+{{-- ---------------------------  PREGUNTA   --------------------------- --}}
 
 				{{-- FILA PREGUNTA --}}
 					<tr>
@@ -41,7 +48,7 @@
 							{{-- FORMULARIO PREGUNTA	 --}}
 							<div class="form-group">
 							  <label for="pregunta"></label>
-							  <input type="text" placeholder="Reescribe aquí tu pregunta editada" name="pregunta" class="form-control" id="pregunta" value="{{$question->pregunta}}" class="form-control">
+							  <input type="text" placeholder="Edita aquí la pregunta editada" name="pregunta" class="form-control" id="pregunta" value="{{$question->pregunta}}" class="form-control">
 							</div>
 							{{-- / FORMULARIO PREGUNTA	 --}}
 
@@ -70,82 +77,95 @@
 					</tr>
 					{{-- /FILA PREGUNTA --}}
 
-					@foreach ($question->questions_answers as $answers)
-						<tr>
+{{-- ---------------------------  RESPUESTAS   --------------------------- --}}
 						@php
-						if ( $answers->respuesta_value == 1){
-							$styleSucess = "alert alert-success";
-							$respuestaLabel = "Respuesta correcta:";
-						} else {
-							$styleSucess = " ";
-							$respuestaLabel = "";
-						}
-					@endphp
+							$i = 0;
+						@endphp
 
-					<tr>
-						<td class ="{{ "valor" }}{{ $answers->respuesta_value}} {{ $styleSucess }}"> {{ "$respuestaLabel" }} {{ $answers->respuesta }}
+						@foreach ($question->questions_answers as $answers)
+							@php
+							if ( $answers->respuesta_value == 1){
+								$styleSucess = "alert alert-success";
+								$respuestaLabel = " correcta";
+							} else {
+								$styleSucess = " ";
+								$respuestaLabel = " ";
+							}
+						@endphp
+
+						<tr>
+
+						@php
+							$i++;
+						@endphp
+
+					{{-- COLUMNA RESPUESTAS --}}
+						<td class ="{{ "valor" }}{{ $answers->respuesta_value}} {{ $styleSucess }}">
+							{{ "Respuesta"."$respuestaLabel"." ".$i.":" }} <br> {{ $answers->respuesta }}
 
 							{{-- FORMULARIO RESPUESTAS	 --}}
 							<div class="form-group">
-								<label for="pregunta"></label>
-								<input type="text" placeholder="Reescribe aquí tu pregunta editada" name="pregunta" class="form-control" id="pregunta" value="{{$question->pregunta}}" class="form-control">
+								<label for="respuesta{{ $i }}"></label>
+								<input type="text" placeholder="Reescribe aquí la respuesta editada" name="respuesta{{ $i }}" class="form-control" id="respuesta{{ $i }}" value="{{ $answers->respuesta }}" class="form-control">
 							</div>
 							{{-- / FORMULARIO RESPUESTAS	 --}}
 
 							{{-- ERRORES RESPUESTAS --}}
-							@if ($errors->has('pregunta'))
+							@if ($errors->has('respuesta{{ $i }}'))
 								<div class="alert alert-danger">
 									<ul>
-										@foreach ($errors->get('pregunta') as $error)
-												<li>{{ $error }}</li>
+										@foreach ($errors->get('respuesta{{ $i }}') as $error)
+											<li>{{ $error }}</li>
 										@endforeach
 									</ul>
 								</div>
 							@endif
 							{{-- /ERRORES RESPUESTAS --}}
 
-
-
+						{{-- / COLUMNA RESPUESTAS --}}
 						</td>
 
-
-
+						{{-- COLUMNA ICONOS --}}
 						<td style="text-align: right;">
 							<a href="" class="btn btn-success">
 								<i class="fa fa-pencil"></i>
 							</a>
 							<br><br>
 						</td>
+						{{-- / COLUMNA ICONOS --}}
+
 					</tr>
 
-					{{-- FIN FOR EACH PARA RESPUESTAS --}}
+
 				 @endforeach
+				 {{-- FIN FOR EACH PARA RESPUESTAS --}}
 
+	{{-- ---------------------------  AYUDA   --------------------------- --}}
 
-					<td> <p> <strong>Ayuda:</strong> <br>{{$question->ayuda}}</p>
+					<td>
 					{{-- COLUMNA AYUDA --}}
-
-						{{-- FORMULARIO RESPUESTAS	 --}}
+						<p><strong>Ayuda:</strong> <br>{{$question->ayuda}}</p>
+						{{-- FORMULARIO AYUDA	 --}}
 						<div class="form-group">
 							<label for="ayuda"></label>
 							<input type="text" placeholder="Edita aquí la sección de ayuda" name="ayuda" class="form-control" id="ayuda" value="{{$question->ayuda}}" class="form-control">
 						</div>
-						{{-- / FORMULARIO RESPUESTAS	 --}}
+						{{-- / FORMULARIO AYUDA	 --}}
 
-						{{-- ERRORES RESPUESTAS --}}
+						{{-- ERRORES AYUDA --}}
 						@if ($errors->has('ayuda'))
 							<div class="alert alert-danger">
 								<ul>
 									@foreach ($errors->get('ayuda') as $error)
-											<li>{{ $error }}</li>
+										<li>{{ $error }}</li>
 									@endforeach
 								</ul>
 							</div>
 						@endif
-						{{-- /ERRORES RESPUESTAS --}}
+						{{-- /ERRORES AYUDA --}}
 
-						{{-- / COLUMNA AYUDA --}}
-						</td>
+					{{-- / COLUMNA AYUDA --}}
+					</td>
 
 					<td style="text-align: right;">
 						<a href="" class="btn btn-success">
@@ -154,15 +174,24 @@
 					</td>
 				</tr>
 
-				@endforeach
+			@endforeach <!-- / FOREACH PARA PREGUNTAS -->
 			</tbody>
+
+{{-- ---------------------------  /TABLA   --------------------------- --}}
 		</table>
 
+{{-- ---------------------------  BOTON SUBMIT   --------------------------- --}}
+
+		<div class="form-group">
+			<button type="submit" name="button" class="btn btn-primary">Guardar</button>
+		</div>
+
+{{-- ---------------------------  FIN FORMULARIO   --------------------------- --}}
 	</form>
 
 </div>
 
-<!-- SCRIPTS SUMA-->
-{{-- <script type="text/javascript" src="/js/edicion_correcta.js"></script> --}}
+{{-- OCULTAR OBJETOS --}}
+{{-- <script type="text/javascript" src="/js/show-hide-objects.js"></script> --}}
 
 @endsection

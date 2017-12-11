@@ -7,14 +7,25 @@
 @section('logo', '../img/Bibliomovil_logo_WHT.png')
 
 @section('content')
-
 	<div class="container">
 		<br><br>
-			<h1>Crear Trivia</h1>
+			<h1>Crear Pregunta</h1>
+
+<div class="col-md-5">
+	<br>
+	<a href="/categoria/showEdit" class="btn btn-default">ir a Categorías</a>
+	<br>
+	<br>
+</div>
+
+
+{{-- ---------------------------  FORMULARIO   --------------------------- --}}
+
 			<form class="col-md-5" action="/preguntas/crear" method="post">
 				{{-- SIEMPRE AGREGAR EL CSFRT_FIELD --}}
 				{{ csrf_field() }}
 
+{{-- ---------------------------  PREGUNTA   --------------------------- --}}
 
 				{{-- INPUT PREGUNTA --}}
 				<div class="form-group">
@@ -33,6 +44,8 @@
 				</div>
 				{{-- FIN INPUT PREGUNTA --}}
 
+{{-- ---------------------------  AYUDA   --------------------------- --}}
+
 				{{-- INPUT AYUDA --}}
 				<div class="form-group">
 					<label for="ayuda">Ayuda / Para sabér más / Tip:</label>
@@ -40,6 +53,7 @@
 				</div>
 				{{-- FIN INPUT AYUDA --}}
 
+{{-- ---------------------------  RESPUESTAS   --------------------------- --}}
 
 				{{-- INPUT RESPUESTAS --}}
 				<div class="form-group">
@@ -91,6 +105,7 @@
 				</div>
 				{{-- FIN INPUT RESPUESTAS --}}
 
+{{-- ---------------------------  SELECCION CATEGORIA   --------------------------- --}}
 
 				{{-- SELECCION DE CATEGORIA --}}
 				<div class="form-group">
@@ -116,6 +131,8 @@
 				</div>
 				{{-- FIN SELECCION DE CATEGORIA --}}
 
+{{-- ---------------------------  SELECCION NUEVA CATEGORIA   --------------------------- --}}
+
 				{{-- INPUT QUE APARECE SI SELECCIONAN NUEVA CATEGORIA --}}
 				<div class="form-group nuevaCategoria" style="display:none">
 					<label for="trivia_category">Nombre de la nueva Categoría</label>
@@ -133,10 +150,14 @@
 				</div>
 				{{-- FIN INPUT QUE APARECE SI SELECCIONAN NUEVA CATEGORIA --}}
 
+{{-- ---------------------------  BOTON SUBMIT   --------------------------- --}}
 
 				<div class="form-group">
-					<button type="submit" name="button" class="btn btn-primary">Enviar</button>
+					<button type="submit" name="button" class="btn btn-primary">Guardar</button>
 				</div>
+
+{{-- ---------------------------  FIN FORMULARIO   --------------------------- --}}
+
 			</form>
 		</div>
 

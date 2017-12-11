@@ -73,28 +73,16 @@ class QuestionsController extends Controller
 
     /*
     |------------------------------------------
-    |  EDITAR
+    |  EDITAR+ UPDATE
     |------------------------------------------
     */
 
     public function editCategory($id)
     {
-        // $questions = DB_Question::where('cat_id', $id)->get();;
-        // $categoryAll = REF_Trivias_Category::all();
-        //
-        // foreach ($questions as $question) {
-        //     $question->questions_answers->get();
-        // }
-        // $variables = [
-        //     'categoryAll' => $categoryAll,
-        //     'questions' => $questions,
-        //     // 'properties' => $properties,
-        // ];
-
-        $questions = DB_Question::where('id', $id)->get();//para que funcionen al azar las preguntas
+        $questions = DB_Question::where('id', $id)->get();
 
         foreach ($questions as $question) {
-            $question->questions_answers->shuffle()->take(3);
+            $question->questions_answers;
         }
 
         $variables = [
@@ -103,6 +91,47 @@ class QuestionsController extends Controller
 
         return view('/trivias.forumulario-edicion-cat', $variables);
     }
+
+//-----------------------------  UPDATE -------------------------------
+
+    public function updateCategory(Request $request, $id)
+    {
+
+      $question = DB_Question::find($id);
+      // dd($question->questions_answers[0]);
+
+
+      $question->pregunta = $request->input('pregunta');
+      $question->ayuda = $request->input('ayuda');
+
+
+      $question->questions_answers[0]->respuesta = $request->respuesta1;
+      $question->questions_answers[0]->respuesta_value = 0;
+      $question->questions_answers[1]->respuesta = $request->respuesta2;
+      $question->questions_answers[1]->respuesta_value = 0;
+      $question->questions_answers[2]->respuesta = $request->respuesta3;
+      $question->questions_answers[2]->respuesta_value = 1;
+
+
+      $question->questions_answers[0]->save();
+      $question->questions_answers[1]->save();
+      $question->questions_answers[2]->save();
+
+
+  //---------------------------esto funciona------------------------------------
+
+  $question->save();
+
+
+      // $question->correcta_id = $request->input($request->respuesta3);
+
+      //------------------------ciona/esto fu---------------------------------------
+
+
+
+      return redirect('/categoria/editarCategoria/'.$id);
+    }
+
 
     /*
     |------------------------------------------
@@ -121,6 +150,7 @@ class QuestionsController extends Controller
         return view('/trivias.crearTrivia', $variables);
     }
 
+ //--------------------  STORE -------------------------------
 
     public function store(Request $request)
     {
@@ -164,15 +194,15 @@ class QuestionsController extends Controller
 
         $answers[] = DB_Answer::create([ //a ver me falta el value
           'respuesta' => $request->input('respuesta1'), // como le pongo respuesta_value->respuesta->id, 0
-          'respuesta_value' => $request->input('0'), // como le pongo respuesta_value->respuesta->id, 0
+          'respuesta_value' => 0, // como le pongo respuesta_value->respuesta->id, 0
         ]);
         $answers[] = DB_Answer::create([
           'respuesta' => $request->input('respuesta2'),
-          'respuesta_value' => $request->input('0'),
+          'respuesta_value' => 0,
           ]);
         $answers[] = DB_Answer::create([
           'respuesta' => $request->input('respuestaCorrecta'),
-          'respuesta_value' => $request->input('1'),
+          'respuesta_value' => 1,
           ]);
 
         $question->questions_answers()->sync([$answers[0]->id,$answers[1]->id,$answers[2]->id]); // pasamos el array de a poco // Para sincronizar nuestras propiedades, seleccionamos al producto y le aclaramos que queremos utilizar la función sync() asociada a nuestra función properties(). A su vez, le pasamos como parámetro a sync(), un array con los id de cada una de las properties que queremos agregarle.
@@ -184,13 +214,6 @@ class QuestionsController extends Controller
 
         return redirect('/preguntas/crear');
     }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
 
     /*
     |------------------------------------------

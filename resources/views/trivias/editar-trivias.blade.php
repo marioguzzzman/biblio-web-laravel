@@ -41,7 +41,7 @@
 							{{-- <a href="/editar-trivia/{{$trivia->id}}" class="btn btn-success"> --}}
 								<i class="fa fa-pencil"></i>
 							</a><br><br>
-							<form action="/preguntas/deleteTrivia/{{$question->id}}"  method="post" class="deleteTrivia">
+							<form action="/preguntas/deleteTrivia/{{$question->id}}"  method="post" class="deleteElement">
 								{{ csrf_field() }}
 								{{ method_field('delete') }}
 								 <button class="fa fa-trash btn btn-danger"  type="submit"></button>
@@ -118,28 +118,7 @@
 
 </div>
 
-<!-- SCRIPTS SUMA-->
-{{-- <script type="text/javascript" src="/js/edicion_correcta.js"></script> --}}
+	<!-- SCRIPTS BORRAR-->
+	<script type="text/javascript" src="/js/edicion_correcta.js"></script>
 
-
-<script type="text/javascript">
-window.onload = function() {
-
-var borrar = document.querySelectorAll(".deleteTrivia");
-borrar.forEach(function(elem) {
-	elem.addEventListener('submit', ConfirmDelete);
-});
-
-function ConfirmDelete(event){
-	var x = confirm("¿Realmente querés borrar este elemento?");
-
-	if (x){
-			 // return true;
-	}else{
-		 event.preventDefault();
-}
-}
-}
-
-</script>
-@endsection
+	@endsection

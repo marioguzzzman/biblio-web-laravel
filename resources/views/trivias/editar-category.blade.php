@@ -32,7 +32,7 @@
 								{{-- cambiar direccion de editado, que vaya a una nueva vista --}}
 								<i class="fa fa-pencil"></i>
 							</a> <br><br>
-							<form action="/preguntas/deleteCategoria/{{$category->id}}" method="post">
+							<form action="/preguntas/deleteCategoria/{{$category->id}}" method="post" class="deleteElement">
 								{{ csrf_field() }}
         				{{ method_field('delete') }}
 								 <button class="fa fa-trash btn btn-danger" type="submit"></button>
@@ -48,4 +48,8 @@
 		</table>
 
 </div>
+
+<!-- SCRIPTS BORRAR-->
+<script type="text/javascript" src="/js/edicion_correcta.js"></script>
+
 @endsection

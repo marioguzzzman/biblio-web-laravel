@@ -33,7 +33,7 @@
           </ul>
         </li>
 
-        <li class="dropdown" id="infantil">
+        {{-- <li class="dropdown" id="infantil">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Infantil <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="processing_web/Actividad%20texto%20oculto%201/index.html">
@@ -44,7 +44,7 @@
             <li><a href="#">Plumo</a></li>
             <li><a href="#">Animal Planet</a></li> -->
           </ul>
-        </li>
+        </li> --}}
 
         <li class="dropdown" id="acercade">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acerca de <span class="caret"></span></a>
@@ -58,10 +58,20 @@
           </ul>
         </li>
 
-        <li><a href="registro.php">Registro</a></li>
-        <li><a href="login.php">Login</a></li>
+        @if (Route::has('login'))
+                @auth
+                    <li><a href="{{ url('/home') }}">Usuario</a></li>
+                    <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+                 @else
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Registro</a></li>
+                @endauth
+        @endif
 
-        </li>
+        {{-- <li><a href="registro">Registro</a></li>
+        <li><a href="login">Login</a></li> --}}
+
+
       </ul>
     </div>
     <!-- /.collapse -->

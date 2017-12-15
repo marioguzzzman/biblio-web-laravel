@@ -66,6 +66,7 @@ Route::get('/preguntasMenu/{id}', 'QuestionsController@show'); // ver la trivia 
 
 //VISTAS DE EDICION
 Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory'); // Editar categorias
+// Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory')->middleware('checkname:admin'); // Editar categorias
 Route::get('/preguntas/showEdit/{id}', 'QuestionsController@showEditTrivia'); //Editar trivias
 
 
@@ -98,17 +99,19 @@ Route::get('/castillo', 'CastilloController@index');
 | Auth
 |------------------------------------------
 */
-//estas son nuevas, aun no las exploro demasiado
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index')->name('home');
+
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+//omo me deslogueo????
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+Route::get('registro', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('registro', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

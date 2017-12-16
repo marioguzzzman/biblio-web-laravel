@@ -32,7 +32,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}"><img alt="Bibliomóvil" src="@yield('logo', 'img/Bibliomovil_logo_WHT.png')">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                      {{-- <img alt="Bibliomóvil" src="@yield('logo', 'img/Bibliomovil_logo_WHT.png')"> --}}
                     </a>
                 </div>
 
@@ -72,6 +73,8 @@
                             </li>
                         @endguest
                     </ul>
+
+
                 </div>
             </div>
         </nav>

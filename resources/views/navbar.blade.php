@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-custom">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -13,6 +14,7 @@
 
     <div class="collapse navbar-collapse" id="navbar-1">
       <ul class="nav navbar-nav navbar-right">
+        &nbsp;
 
         <li><a href="/">Inicio</a></li>
 
@@ -58,15 +60,32 @@
           </ul>
         </li>
 
-        @if (Route::has('login'))
-                @auth
-                    <li><a href="{{ url('/home') }}">Usuario</a></li>
-                    <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
-                 @else
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Registro</a></li>
-                @endauth
-        @endif
+        @guest
+            {{-- <li><a href="/">Inicio</a></li> --}}
+
+            <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ route('register') }}">Registro</a></li>
+        @else
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Cerrar sesión
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        @endguest
 
         {{-- <li><a href="registro">Registro</a></li>
         <li><a href="login">Login</a></li> --}}

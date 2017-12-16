@@ -65,6 +65,27 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4  form-group{{ $errors->has('provincias') ? ' has-error' : '' }}">
+
+                <select class="selecLugar provincias custom-select">
+                <option class="selecLugar" value="">Selecciona tu provincia</option>
+                </select>
+
+                  <br>
+                <br>
+                  <select class="selecLugar ciudades custom-select">
+                    <option class="selecLugar" value="">Selecciona tu ciudad:</option>
+                  </select>
+
+                  @if ($errors->has('provincias'))
+                      <span class="help-block">
+                        <strong>{{ $errors->first('provincias') }}</strong>
+                      </span>
+                  @endif
+          </div>
+        </div>
+
         <div class="row form-group">
           <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
             <button type="submit" class="btn btn-mg btn-block regbutton">Registrate</button>
@@ -73,5 +94,8 @@
 
       </form>
     </div>
+
+{{-- script para buscar por ajaxx provincias y ciudades --}}
+  <script type="text/javascript" src="{{ asset('js/provincias.js') }}"></script>
 
 @endsection

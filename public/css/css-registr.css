@@ -200,6 +200,16 @@ FORM BUTTONS
   background-color: #82ddff;
 }
 
+.selecLugar{
+     color: #7e7d7d !important;
+    font: inherit;
+    margin: 0;
+}
+
+.register-form {
+    font-size: 15px !important;
+}
+
 /*-------------------------------
 CONFIRMACION
 --------------------------------*/

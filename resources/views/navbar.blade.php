@@ -29,13 +29,13 @@
             <li role="separator" class="divider"></li>
 
             <li><a href="#">Cuentos Interactivos</a></li> -->
-            <li><a href="http://www.philome.la/marioguzzman/infinitud-discreta/play">Infinitud Discreta</a></li>
-            <li><a href="http://www.philome.la/marioguzzman/tringulo-de-las-bermudas/play">El triángulo de las Bermudas</a></li>
+            <li><a href="http://www.philome.la/marioguzzman/infinitud-discreta/play" target="_blank">Infinitud Discreta</a></li>
+            <li><a href="http://www.philome.la/marioguzzman/tringulo-de-las-bermudas/play" target="_blank">El triángulo de las Bermudas</a></li>
 
           </ul>
         </li>
 
-        {{-- <li class="dropdown" id="infantil">
+        <li class="dropdown" id="infantil">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Infantil <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="processing_web/Actividad%20texto%20oculto%201/index.html">
@@ -46,7 +46,7 @@
             <li><a href="#">Plumo</a></li>
             <li><a href="#">Animal Planet</a></li> -->
           </ul>
-        </li> --}}
+        </li>
 
         <li class="dropdown" id="acercade">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acerca de <span class="caret"></span></a>
@@ -86,6 +86,17 @@
                 </ul>
             </li>
         @endguest
+
+        @if (Route::has('login'))
+                @auth
+                  <li>
+                    <a href="{{ url('/home') }}">Admin</a>
+                  </li>
+                @else
+                    <a href="{{ route('login') }}"></a>
+                    <a href="{{ route('register') }}"></a>
+                @endauth
+        @endif
 
         {{-- <li><a href="registro">Registro</a></li>
         <li><a href="login">Login</a></li> --}}

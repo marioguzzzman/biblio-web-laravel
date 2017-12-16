@@ -36,21 +36,9 @@
 
     @include('navbar');
 
-
-    {{-- @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @endauth
-        </div>
-    @endif --}}
-
     @yield('content');
 
-    @include('footer');  <!-- FOOOTER-->
+    @include('footer');
 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -58,7 +46,7 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  <!-- Scripts -->/
+  <!-- Sin este escript no se mueven los dropdowns -->/
   <script src="public/js/app.js"></script>
 </body>
 

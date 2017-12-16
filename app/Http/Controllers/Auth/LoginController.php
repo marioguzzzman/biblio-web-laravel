@@ -56,21 +56,4 @@ class LoginController extends Controller
 
     }
 
-// aca podemos cambiar las propiedades del login
-    // protected function validateLogin(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         $this->username() => 'required|string',
-    //         'password' => 'required|string|min:6',
-    //     ]);
-    // }
-
-    // public function logout(Request $request)
-    // {
-    //     $this->guard()->logout();
-    //
-    //     $request->session()->invalidate();
-    //
-    //     return redirect('/');
-    // }
 }

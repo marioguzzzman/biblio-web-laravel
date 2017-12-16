@@ -33,7 +33,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                      {{-- <img alt="Bibliomóvil" src="@yield('logo', 'img/Bibliomovil_logo_WHT.png')"> --}}
+                      <img alt="Bibliomóvil" src="@yield('logo', 'img/Bibliomovil_logo_WHT.png')">
                     </a>
                 </div>
 

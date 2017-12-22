@@ -8,7 +8,12 @@ GENERAL
 ----------------------------*/
 
 body {
-  background: linear-gradient(to right, rgb(63, 219, 255) 0%, rgb(128, 220, 255) 100%) !important;
+  /*background: linear-gradient(to right, rgb(63, 219, 255) 0%, rgb(128, 220, 255) 100%) !important;*/
+  background-image: url("../img/Background/study.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1 {

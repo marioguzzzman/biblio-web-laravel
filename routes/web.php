@@ -66,7 +66,7 @@ Route::get('/preguntasMenu/{id}', 'QuestionsController@show'); // ver la trivia 
 
 //VISTAS DE EDICION
 Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory'); // Editar categorias
-// Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory')->middleware('checkname:admin'); // Editar categorias
+// Route::get('/categoria/showEdit', 'QuestionsController@showEditCategory')->middleware('checkname:admin');; // Editar categorias
 Route::get('/preguntas/showEdit/{id}', 'QuestionsController@showEditTrivia'); //Editar trivias
 
 

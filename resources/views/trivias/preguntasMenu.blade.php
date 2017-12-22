@@ -20,7 +20,7 @@
       <section class="imagen-izquierda">
         <div class="col-sx-2 col-md-4 col-md-offset-1">
           <!-- IMAGEN SIDE -->
-          <img class="img-responsive" src="img/profesor.png" alt="Profesor">
+          {{-- <img class="img-responsive" src="img/profesor.png" alt="Profesor"> --}}
           <!-- IMAGEN SIDE -->
         </div>
       </section>
@@ -37,7 +37,7 @@
           <div class="col-md-3">
 
             <a id="single_image1" href=""></a>
-              <img class="img-responsive" src="img/trivias/libro.png" alt="{{$category->trivia_category}}"/>
+              <img class="img-responsive" src="img/trivias/juvenil.png" alt="{{$category->trivia_category}}"/>
                 <div class="centered trivia">
                   <h4>
                     <a href="/preguntasMenu/{{$category->id}}">{{$category->trivia_category}}</a>
